@@ -409,55 +409,157 @@ function App(){
           );})()}
           </>}
 
-          {view==="food"&&(
+          {view==="food"&&(()=>{
+            const[foodTab,setFoodTab]=useState("meals");
+            const mealCats=[
+              {key:"bfast",label:"🍳 BREAKFAST",time:"7-8am",target:"~500 cal · 30-50g protein",meals:[
+                {name:"Classic Scramble",items:["4 whole eggs scrambled in 1 tbsp butter","1 slice sourdough toast","1 cup mixed berries"],p:29,cal:560},
+                {name:"Steak & Eggs",items:["6 oz flank steak, pan-seared","3 eggs any style","1 cup sliced fruit (melon, berries)"],p:52,cal:520},
+                {name:"Protein Pancakes",items:["2 scoops whey + 1 banana + 2 eggs, blended & cooked","1 tbsp butter on top","Handful of blueberries"],p:54,cal:480},
+                {name:"Loaded Egg Bake",items:["6 egg whites + 2 whole eggs scrambled","Diced peppers, onions, spinach","1 slice sourdough"],p:38,cal:420},
+                {name:"Sourdough French Toast",items:["2 slices sourdough dipped in 3 eggs + cinnamon","1 tbsp butter for cooking","Sliced banana on top"],p:26,cal:510},
+              ]},
+              {key:"lunch",label:"🥗 LUNCH",time:"12-1pm",target:"~600 cal · 50-55g protein",meals:[
+                {name:"Chicken & Rice",items:["8 oz chicken breast, grilled or air-fried","1 cup white rice + 1 tbsp butter","Steamed broccoli or green beans"],p:59,cal:635},
+                {name:"Steak Bowl",items:["8 oz sirloin, sliced thin","1 cup rice","Sautéed peppers & onions"],p:54,cal:620},
+                {name:"Chicken Potato Plate",items:["8 oz chicken breast, seasoned","1 medium baked potato + 1 tbsp butter","Side salad with olive oil"],p:56,cal:580},
+                {name:"Egg Fried Rice",items:["4 whole eggs scrambled into 1.5 cups day-old rice","Soy sauce, garlic, green onion","Side of fruit"],p:28,cal:550},
+                {name:"Chicken Sourdough Melt",items:["8 oz shredded chicken on 2 slices sourdough","Butter the bread, pan-press it","Pickles + mustard on the side"],p:56,cal:610},
+              ]},
+              {key:"dinner",label:"🥩 DINNER",time:"5-7pm",target:"~600 cal · 45-52g protein",meals:[
+                {name:"NY Strip Night",items:["8 oz NY strip, medium-rare","1 medium baked potato + 1 tbsp butter","Side salad or roasted veggies"],p:52,cal:660},
+                {name:"Chicken Thighs",items:["8 oz bone-in chicken thighs, roasted","Roasted baby potatoes with herbs","Steamed asparagus"],p:48,cal:580},
+                {name:"Burger Plate (no bun)",items:["8 oz ground beef patty (85/15)","Potato wedges, oven-baked","Lettuce, tomato, pickles, mustard"],p:46,cal:620},
+                {name:"Steak & Eggs Round 2",items:["6 oz sirloin","3 eggs, over easy","1 slice sourdough + butter"],p:52,cal:600},
+                {name:"Chicken Stir Fry",items:["8 oz chicken breast, sliced","1 cup rice","Stir-fried zucchini, bell pepper, soy sauce"],p:54,cal:590},
+              ]},
+            ];
+            const shakes=[
+              {name:"Classic Post-WO",items:["2 scoops whey isolate","1 banana","8 oz water"],p:49,cal:345},
+              {name:"PB Power",items:["2 scoops whey isolate","1 tbsp peanut butter","1 banana, 8 oz almond milk"],p:53,cal:440},
+              {name:"Berry Blast",items:["2 scoops whey isolate","1 cup frozen mixed berries","8 oz almond milk"],p:50,cal:320},
+            ];
+            const snacks=[
+              {name:"Hard-Boiled Eggs (2)",p:12,cal:140,note:"Prep a batch Sunday night"},
+              {name:"Greek Yogurt + Berries",p:18,cal:170,note:"Full-fat or 2% — skip the 0%"},
+              {name:"Beef Jerky (2 oz)",p:18,cal:160,note:"Look for low-sugar brands"},
+              {name:"Cottage Cheese + Fruit",p:24,cal:200,note:"Best protein-per-calorie snack"},
+              {name:"Apple + 2 tbsp PB",p:7,cal:280,note:"Good pre-workout energy"},
+              {name:"Protein Bar",p:20,cal:220,note:"RXBar or Barebells — skip the candy bars"},
+              {name:"Rice Cakes + Butter",p:2,cal:130,note:"Quick carbs on training days"},
+              {name:"Banana + Handful of Almonds",p:7,cal:260,note:"Easy grab-and-go"},
+            ];
+            const brands=[
+              {brand:"Optimum Nutrition",note:"Gold Standard Isolate · 24g · Best value",url:"https://www.amazon.com/dp/B000QSNYGI"},
+              {brand:"Momentous",note:"Whey Isolate · 24g · NSF certified",url:"https://www.livemomentous.com/products/grass-fed-whey-protein"},
+              {brand:"Transparent Labs",note:"Grass-Fed · 28g · Highest per scoop",url:"https://www.transparentlabs.com/products/proteinseries-100-grass-fed-whey-protein-isolate"},
+              {brand:"Dymatize",note:"ISO100 · 25g · No bloat",url:"https://www.amazon.com/dp/B000GIPJ0M"},
+            ];
+            return(
             <div>
-              <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:5,margin:"6px 0 14px"}}>
-                {[{l:"Cal",v:"2,155",c:C.red},{l:"Protein",v:"201g",c:C.orange},{l:"Carbs",v:"170g",c:C.gold},{l:"Fat",v:"83g",c:"#2a9d8f"}].map((m,i)=>(
+              {/* Macro targets */}
+              <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:5,margin:"6px 0 10px"}}>
+                {[{l:"Cal",v:"~2,150",c:C.red},{l:"Protein",v:"200g+",c:C.orange},{l:"Carbs",v:"~180g",c:C.gold},{l:"Fat",v:"~75g",c:"#2a9d8f"}].map((m,i)=>(
                   <div key={i} style={{background:C.card,borderRadius:10,padding:"9px 4px",textAlign:"center",borderTop:"3px solid "+m.c}}>
-                    <div style={{fontSize:15,fontWeight:800,color:m.c}}>{m.v}</div>
+                    <div style={{fontSize:14,fontWeight:800,color:m.c}}>{m.v}</div>
                     <div style={{fontSize:9,color:C.dim,marginTop:1}}>{m.l}</div>
                   </div>
                 ))}
               </div>
-              {[
-                {meal:"MEAL 1",time:"7-8am",items:["4 eggs + 1 tbsp butter — 24P","1 slice sourdough — 4P","1 cup berries — 1P"]},
-                {meal:"MEAL 2",time:"12-1pm",items:["8 oz chicken breast — 52P","1 cup rice + 1 tbsp butter — 4P","Veggies — 3P"]},
-                {meal:"MEAL 3",time:"5-6pm",items:["8 oz NY strip — 46P","1 baked potato + 1 tbsp butter — 4P","Side salad/veggies — 2P"]},
-                {meal:"SHAKE",time:"Post-WO",items:["2 scoops whey isolate — 48P","1 banana — 1P"]},
-              ].map((m,mi)=>(
-                <div key={mi} style={{marginBottom:10}}>
-                  <div style={{display:"flex",justifyContent:"space-between",marginBottom:3}}>
-                    <span style={{fontSize:12,fontWeight:800,color:C.red}}>{m.meal}</span>
-                    <span style={{fontSize:10,color:C.dim}}>{m.time}</span>
+
+              {/* Sub-nav */}
+              <div style={{display:"flex",gap:4,marginBottom:10}}>
+                {[{k:"meals",l:"Meals"},{k:"snacks",l:"Snacks"},{k:"shakes",l:"Shakes"}].map(t=>(
+                  <button key={t.k} onClick={()=>setFoodTab(t.k)} style={{flex:1,padding:"6px 0",borderRadius:7,border:"none",cursor:"pointer",fontFamily:"inherit",fontSize:10,fontWeight:700,letterSpacing:0.5,background:foodTab===t.k?C.orange:C.card,color:foodTab===t.k?C.navy:C.dim}}>{t.l}</button>
+                ))}
+              </div>
+
+              {/* MEALS TAB */}
+              {foodTab==="meals"&&mealCats.map(cat=>(
+                <div key={cat.key} style={{marginBottom:10}}>
+                  <div style={{display:"flex",justifyContent:"space-between",alignItems:"baseline",marginBottom:6}}>
+                    <span style={{fontSize:13,fontWeight:800,color:C.gold}}>{cat.label}</span>
+                    <span style={{fontSize:9,color:C.dim}}>{cat.time} · {cat.target}</span>
                   </div>
-                  {m.items.map((item,ii)=>(
-                    <div key={ii} style={{padding:"6px 10px",background:ii%2===0?C.card:C.cardAlt,borderRadius:6,marginBottom:1,fontSize:12,color:C.sub}}>{item}</div>
+                  {cat.meals.map((meal,mi)=>(
+                    <div key={mi} style={{background:mi%2===0?C.card:C.cardAlt,borderRadius:10,padding:"10px 12px",marginBottom:4,borderLeft:`3px solid ${mi===0?C.orange:C.navy}`}}>
+                      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:4}}>
+                        <span style={{fontSize:13,fontWeight:700,color:C.text}}>{meal.name}</span>
+                        <div style={{display:"flex",gap:8}}>
+                          <span style={{fontSize:10,fontWeight:700,color:C.orange}}>{meal.p}P</span>
+                          <span style={{fontSize:10,color:C.dim}}>{meal.cal} cal</span>
+                        </div>
+                      </div>
+                      {meal.items.map((item,ii)=>(
+                        <div key={ii} style={{fontSize:11,color:C.sub,paddingLeft:8,lineHeight:1.7,borderLeft:"1px solid "+C.dim+"30"}}>• {item}</div>
+                      ))}
+                    </div>
                   ))}
                 </div>
               ))}
-              <div style={{background:C.card,borderRadius:10,padding:10,borderLeft:`3px solid ${C.orange}`,marginTop:6}}>
-                <div style={{fontSize:10,color:C.orange,fontWeight:700,marginBottom:3}}>CARB CYCLING</div>
-                <div style={{fontSize:10,color:C.sub,lineHeight:1.5}}>Leg/push days → extra ½ cup rice. Rest days → ¾ cup rice, skip sourdough.</div>
-              </div>
-              <div style={{marginTop:14}}>
-                <div style={{fontSize:11,fontWeight:800,color:C.red,marginBottom:6}}>PROTEIN SHAKES</div>
-                {[
-                  {brand:"Optimum Nutrition",note:"Gold Standard Isolate · 24g · Best value",url:"https://www.amazon.com/dp/B000QSNYGI"},
-                  {brand:"Momentous",note:"Whey Isolate · 24g · NSF certified",url:"https://www.livemomentous.com/products/grass-fed-whey-protein"},
-                  {brand:"Transparent Labs",note:"Grass-Fed · 28g · Highest per scoop",url:"https://www.transparentlabs.com/products/proteinseries-100-grass-fed-whey-protein-isolate"},
-                  {brand:"Dymatize",note:"ISO100 · 25g · No bloat",url:"https://www.amazon.com/dp/B000GIPJ0M"},
-                ].map((s,i)=>(
-                  <div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 10px",background:i%2===0?C.card:C.cardAlt,borderRadius:8,marginBottom:3}}>
-                    <div>
-                      <div style={{fontWeight:700,fontSize:12,color:C.text}}>{s.brand}</div>
-                      <div style={{fontSize:9,color:C.dim}}>{s.note}</div>
+
+              {/* SNACKS TAB */}
+              {foodTab==="snacks"&&(
+                <div>
+                  <div style={{fontSize:10,color:C.dim,marginBottom:10,textAlign:"center"}}>Use these to fill gaps or hit your protein target. Pick 1-2 per day max.</div>
+                  {snacks.map((s,i)=>(
+                    <div key={i} style={{display:"flex",alignItems:"center",padding:"10px 12px",background:i%2===0?C.card:C.cardAlt,borderRadius:8,marginBottom:3}}>
+                      <div style={{flex:1}}>
+                        <div style={{fontWeight:700,fontSize:13,color:C.text}}>{s.name}</div>
+                        <div style={{fontSize:10,color:C.dim,marginTop:1}}>{s.note}</div>
+                      </div>
+                      <div style={{textAlign:"right",flexShrink:0,marginLeft:10}}>
+                        <div style={{fontSize:12,fontWeight:700,color:C.orange}}>{s.p}P</div>
+                        <div style={{fontSize:9,color:C.dim}}>{s.cal} cal</div>
+                      </div>
                     </div>
-                    <a href={s.url} target="_blank" rel="noopener noreferrer" style={{color:C.orange,fontSize:10,fontWeight:700,textDecoration:"none"}}>Buy →</a>
-                  </div>
-                ))}
+                  ))}
+                </div>
+              )}
+
+              {/* SHAKES TAB */}
+              {foodTab==="shakes"&&(
+                <div>
+                  <div style={{fontSize:10,color:C.dim,marginBottom:10,textAlign:"center"}}>Post-workout or mid-afternoon on rest days. 2 scoops = ~48g protein.</div>
+                  {shakes.map((s,i)=>(
+                    <div key={i} style={{background:C.card,borderRadius:10,padding:"10px 12px",marginBottom:6,borderLeft:`3px solid ${C.gold}`}}>
+                      <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:4}}>
+                        <span style={{fontSize:13,fontWeight:700,color:C.text}}>{s.name}</span>
+                        <div style={{display:"flex",gap:8}}>
+                          <span style={{fontSize:10,fontWeight:700,color:C.orange}}>{s.p}P</span>
+                          <span style={{fontSize:10,color:C.dim}}>{s.cal} cal</span>
+                        </div>
+                      </div>
+                      {s.items.map((item,ii)=>(
+                        <div key={ii} style={{fontSize:11,color:C.sub,paddingLeft:8,lineHeight:1.7}}>• {item}</div>
+                      ))}
+                    </div>
+                  ))}
+                  <div style={{fontSize:11,fontWeight:800,color:C.red,marginTop:14,marginBottom:6}}>RECOMMENDED BRANDS</div>
+                  {brands.map((b,i)=>(
+                    <div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 10px",background:i%2===0?C.card:C.cardAlt,borderRadius:8,marginBottom:3}}>
+                      <div>
+                        <div style={{fontWeight:700,fontSize:12,color:C.text}}>{b.brand}</div>
+                        <div style={{fontSize:9,color:C.dim}}>{b.note}</div>
+                      </div>
+                      <a href={b.url} target="_blank" rel="noopener noreferrer" style={{color:C.orange,fontSize:10,fontWeight:700,textDecoration:"none"}}>Buy →</a>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Carb cycling note */}
+              <div style={{background:C.card,borderRadius:10,padding:10,borderLeft:`3px solid ${C.orange}`,marginTop:10}}>
+                <div style={{fontSize:10,color:C.orange,fontWeight:700,marginBottom:3}}>CARB CYCLING</div>
+                <div style={{fontSize:10,color:C.sub,lineHeight:1.6}}>Push & Leg days → extra ½ cup rice at lunch, go for the bigger meals.<br/>Rest days → drop rice to ¾ cup, skip sourdough, lean toward lighter options.</div>
+              </div>
+              <div style={{background:C.card,borderRadius:10,padding:10,borderLeft:`3px solid ${C.gold}`,marginTop:6}}>
+                <div style={{fontSize:10,color:C.gold,fontWeight:700,marginBottom:3}}>DAILY RULES</div>
+                <div style={{fontSize:10,color:C.sub,lineHeight:1.6}}>1 breakfast + 1 lunch + 1 dinner + 1 shake = ~2,150 cal, 200g+ protein.<br/>Add 1-2 snacks only if you're short on protein or genuinely hungry.</div>
               </div>
             </div>
-          )}
+            );
+          })()}
 
           {view==="progress"&&(
             <div>
