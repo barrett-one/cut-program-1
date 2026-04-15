@@ -9,6 +9,7 @@
 <title>Cut12</title>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIj4KICA8cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgcng9IjI0IiBmaWxsPSIjMDAzMDQ5Ii8+CiAgPHRleHQgeD0iNjAiIHk9IjUyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwgQmxhY2ssIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iOTAwIiBmb250LXNpemU9IjM4IiBmaWxsPSIjRkNCRjQ5IiBsZXR0ZXItc3BhY2luZz0iLTIiPkNVVDwvdGV4dD4KICA8dGV4dCB4PSI2MCIgeT0iOTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCBCbGFjaywgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI5MDAiIGZvbnQtc2l6ZT0iNDgiIGZpbGw9IiNGNzdGMDAiIGxldHRlci1zcGFjaW5nPSItMSI+MTI8L3RleHQ+CiAgPHJlY3QgeD0iMTUiIHk9IjU2IiB3aWR0aD0iOTAiIGhlaWdodD0iNCIgcng9IjIiIGZpbGw9IiNENjI4MjgiLz4KPC9zdmc+Cg==">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 body { background: #00243a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #F0E6D3; overflow-x: hidden; }
@@ -153,11 +154,27 @@ const STORAGE_KEY = "cut12wk-data";
 
 function getDayExIds(k){const d=DAYS.find(x=>x.key===k);const ids=[];if(d)d.sections.forEach(s=>s.exercises.forEach(e=>ids.push(e.id)));return ids;}
 function ytUrl(q){return"https://www.youtube.com/results?search_query="+encodeURIComponent(q+" form demo");}
-function loadData(){try{const r=localStorage.getItem(STORAGE_KEY);if(r)return JSON.parse(r);}catch(e){}return null;}
-function saveData(d){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(d));return true;}catch(e){return false;}}
+function loadData(){
+  try{
+    const r=localStorage.getItem(STORAGE_KEY);
+    if(r){const p=JSON.parse(r);return p;}
+  }catch(e){}
+  return null;
+}
+function saveData(d){
+  try{
+    const s=JSON.stringify(d);
+    localStorage.setItem(STORAGE_KEY,s);
+    // Verify: read it back immediately
+    const check=localStorage.getItem(STORAGE_KEY);
+    return check===s;
+  }catch(e){return false;}
+}
 
 function App(){
   const saved=useRef(loadData());
+  const savedExCount=useRef(saved.current?Object.values(saved.current.weeks||{}).reduce((a,w)=>a+Object.keys(w).length,0):0);
+  const savedWeightCount=useRef(saved.current?Object.keys(saved.current.weights||{}).filter(k=>saved.current.weights[k]).length:0);
   const[allWeeks,setAllWeeks]=useState(saved.current?.weeks||{});
   const[currentWeek,setCurrentWeek]=useState(saved.current?.currentWeek||1);
   const[weightInputs,setWeightInputs]=useState(saved.current?.weights||{});
@@ -165,23 +182,26 @@ function App(){
   const[flash,setFlash]=useState(null);
   const[dayComplete,setDayComplete]=useState(null);
   const[view,setView]=useState("workout");
-  const[saveStatus,setSaveStatus]=useState(saved.current?"✓":"");
+  const[saveStatus,setSaveStatus]=useState(saved.current?("✓ Loaded: "+savedExCount.current+" exercises, "+savedWeightCount.current+" weigh-ins"):"New session — no saved data found");
   const timer=useRef(null);
 
-  useEffect(()=>{if(saved.current)setTimeout(()=>setSaveStatus(""),1500);},[]);
+  useEffect(()=>{setTimeout(()=>setSaveStatus(""),4000);},[]);
 
   const persist=(w,wt,wk)=>{
     if(timer.current)clearTimeout(timer.current);
     timer.current=setTimeout(()=>{
       const ok=saveData({weeks:w,weights:wt,currentWeek:wk});
-      setSaveStatus(ok?"✓":"⚠");setTimeout(()=>setSaveStatus(""),1500);
+      setSaveStatus(ok?"✓ Auto-saved":"⚠ Save failed");setTimeout(()=>setSaveStatus(""),2000);
     },300);
   };
 
   const forceSave=()=>{
     if(timer.current)clearTimeout(timer.current);
     const ok=saveData({weeks:allWeeks,weights:weightInputs,currentWeek});
-    setSaveStatus(ok?"✓ SAVED":"⚠ FAILED");setTimeout(()=>setSaveStatus(""),2500);
+    const exCount=Object.values(allWeeks).reduce((a,w)=>a+Object.keys(w).length,0);
+    const wtCount=Object.keys(weightInputs).filter(k=>weightInputs[k]).length;
+    setSaveStatus(ok?("✓ SAVED: "+exCount+" exercises, "+wtCount+" weigh-ins"):"⚠ SAVE FAILED");
+    setTimeout(()=>setSaveStatus(""),3000);
   };
 
   const getDone=(wk)=>allWeeks[wk]||{};
