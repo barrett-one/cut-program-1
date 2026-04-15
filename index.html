@@ -182,6 +182,7 @@ function App(){
   const[flash,setFlash]=useState(null);
   const[dayComplete,setDayComplete]=useState(null);
   const[view,setView]=useState("workout");
+  const[foodTab,setFoodTab]=useState("meals");
   const[saveStatus,setSaveStatus]=useState(saved.current?("✓ Loaded: "+savedExCount.current+" exercises, "+savedWeightCount.current+" weigh-ins"):"New session — no saved data found");
   const timer=useRef(null);
 
@@ -410,7 +411,6 @@ function App(){
           </>}
 
           {view==="food"&&(()=>{
-            const[foodTab,setFoodTab]=useState("meals");
             const mealCats=[
               {key:"bfast",label:"🍳 BREAKFAST",time:"7-8am",target:"~500 cal · 30-50g protein",meals:[
                 {name:"Classic Scramble",items:["4 whole eggs scrambled in 1 tbsp butter","1 slice sourdough toast","1 cup mixed berries"],p:29,cal:560},
