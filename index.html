@@ -5,17 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="theme-color" content="#111119">
-<title>12-Week Cut Tracker</title>
-<link rel="manifest" href="data:application/json;base64,eyJuYW1lIjoiMTItV2VlayBDdXQiLCJzaG9ydF9uYW1lIjoiQ3V0IFRyYWNrZXIiLCJzdGFydF91cmwiOiIuIiwiZGlzcGxheSI6InN0YW5kYWxvbmUiLCJiYWNrZ3JvdW5kX2NvbG9yIjoiIzExMTExOSIsInRoZW1lX2NvbG9yIjoiIzExMTExOSJ9">
+<meta name="theme-color" content="#003049">
+<title>Cut12</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIj4KICA8cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgcng9IjI0IiBmaWxsPSIjMDAzMDQ5Ii8+CiAgPHRleHQgeD0iNjAiIHk9IjUyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwgQmxhY2ssIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iOTAwIiBmb250LXNpemU9IjM4IiBmaWxsPSIjRkNCRjQ5IiBsZXR0ZXItc3BhY2luZz0iLTIiPkNVVDwvdGV4dD4KICA8dGV4dCB4PSI2MCIgeT0iOTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCBCbGFjaywgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI5MDAiIGZvbnQtc2l6ZT0iNDgiIGZpbGw9IiNGNzdGMDAiIGxldHRlci1zcGFjaW5nPSItMSI+MTI8L3RleHQ+CiAgPHJlY3QgeD0iMTUiIHk9IjU2IiB3aWR0aD0iOTAiIGhlaWdodD0iNCIgcng9IjIiIGZpbGw9IiNENjI4MjgiLz4KPC9zdmc+Cg==">
+<link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjAgMTIwIj4KICA8cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgcng9IjI0IiBmaWxsPSIjMDAzMDQ5Ii8+CiAgPHRleHQgeD0iNjAiIHk9IjUyIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwgQmxhY2ssIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXdlaWdodD0iOTAwIiBmb250LXNpemU9IjM4IiBmaWxsPSIjRkNCRjQ5IiBsZXR0ZXItc3BhY2luZz0iLTIiPkNVVDwvdGV4dD4KICA8dGV4dCB4PSI2MCIgeT0iOTIiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCBCbGFjaywgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI5MDAiIGZvbnQtc2l6ZT0iNDgiIGZpbGw9IiNGNzdGMDAiIGxldHRlci1zcGFjaW5nPSItMSI+MTI8L3RleHQ+CiAgPHJlY3QgeD0iMTUiIHk9IjU2IiB3aWR0aD0iOTAiIGhlaWdodD0iNCIgcng9IjIiIGZpbGw9IiNENjI4MjgiLz4KPC9zdmc+Cg==">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-body { background: #111119; font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif; color: #F8F8F2; overflow-x: hidden; }
+body { background: #00243a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #F0E6D3; overflow-x: hidden; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #003049; }
+::-webkit-scrollbar-thumb { background: #F77F00; border-radius: 3px; }
 input[type=number]::-webkit-inner-spin-button { opacity: 1; }
-::-webkit-scrollbar { display: none; }
 @keyframes checkPop { 0%{transform:scale(1)} 50%{transform:scale(1.35)} 100%{transform:scale(1)} }
-@keyframes flashGreen { 0%{background:#00B89440} 100%{background:transparent} }
+@keyframes flashDone { 0%{background:rgba(252,191,73,0.25)} 100%{background:transparent} }
 @keyframes completeBanner { 0%{opacity:0;transform:translateY(-20px)} 10%{opacity:1;transform:translateY(0)} 85%{opacity:1} 100%{opacity:0;transform:translateY(-20px)} }
+.shell { max-width: 600px; margin: 0 auto; }
+@media (min-width: 768px) {
+  .shell { max-width: 720px; }
+  body { padding: 20px 0; }
+  .app-wrap { border-radius: 16px; overflow: hidden; border: 1px solid #0a4060; box-shadow: 0 8px 40px rgba(0,0,0,0.5); }
+}
+@media (min-width: 1024px) {
+  .shell { max-width: 480px; }
+}
 </style>
 </head>
 <body>
@@ -26,420 +38,418 @@ input[type=number]::-webkit-inner-spin-button { opacity: 1; }
 <script type="text/babel">
 const { useState, useEffect, useRef } = React;
 
+// ─── COLORS ───
+const C = { navy: "#003049", red: "#D62828", orange: "#F77F00", gold: "#FCBF49", bg: "#00243a", card: "#003a56", cardAlt: "#004466", text: "#F0E6D3", sub: "#8ab4c9", dim: "#4a7a8f", done: "#FCBF49" };
+
 const DAYS = [
-  { key: "push", day: "MON", title: "PUSH", sub: "Chest / Tri / Delts", icon: "💪", color: "#E94560",
-    sections: [
-      { label: "COMPOUND", exercises: [
-        { id: "p1", name: "Incline DB Press", rx: "4 × 8-10", rest: "90s", rpe: "8-9", tempo: "3-1-1-0", note: "30° incline. Key upper chest builder.", q: "incline dumbbell press form" },
-        { id: "p2", name: "Flat Barbell Bench", rx: "3 × 6-8", rest: "2 min", rpe: "8-9", tempo: "3-1-1-0", note: "Pinch shoulder blades, slight arch.", q: "barbell bench press form" },
-        { id: "p3", name: "Weighted Dips", rx: "3 × 8-10", rest: "90s", rpe: "8", tempo: "2-1-1-0", note: "Lean forward for chest emphasis.", q: "weighted chest dips" },
+  { key:"push", day:"MON", title:"PUSH", sub:"Chest / Tri / Delts", icon:"💪", color:C.red,
+    sections:[
+      { label:"COMPOUND", exercises:[
+        { id:"p1", name:"Incline DB Press", rx:"4 × 8-10", rest:"90s", rpe:"8-9", tempo:"3-1-1-0", note:"30° incline. Key upper chest builder.", q:"incline dumbbell press form" },
+        { id:"p2", name:"Flat Barbell Bench", rx:"3 × 6-8", rest:"2 min", rpe:"8-9", tempo:"3-1-1-0", note:"Pinch shoulder blades, slight arch.", q:"barbell bench press form" },
+        { id:"p3", name:"Weighted Dips", rx:"3 × 8-10", rest:"90s", rpe:"8", tempo:"2-1-1-0", note:"Lean forward for chest emphasis.", q:"weighted chest dips" },
       ]},
-      { label: "ISOLATION", exercises: [
-        { id: "p4", name: "Cable Flyes (low→high)", rx: "3 × 12-15", rest: "60s", rpe: "7-8", tempo: "2-1-2-0", note: "Squeeze at top. Upper chest.", q: "low to high cable fly" },
-        { id: "p5", name: "OH Tricep Extension", rx: "3 × 12-15", rest: "60s", rpe: "7-8", tempo: "2-1-2-0", note: "Long head — horseshoe builder.", q: "cable overhead tricep extension" },
-        { id: "p6", name: "Rope Pushdowns", rx: "3 × 12-15", rest: "60s", rpe: "7-8", tempo: "2-0-2-0", note: "Spread rope at bottom, squeeze.", q: "tricep rope pushdown" },
-        { id: "p7", name: "Lateral Raises", rx: "3 × 15-20", rest: "45s", rpe: "7", tempo: "2-0-2-0", note: "Light weight, control the negative.", q: "dumbbell lateral raise" },
-      ]},
-    ]
-  },
-  { key: "pull", day: "TUE", title: "PULL", sub: "Back / Biceps / Rear Delts", icon: "🏋️", color: "#6C5CE7",
-    sections: [
-      { label: "COMPOUND", exercises: [
-        { id: "pl1", name: "Weighted Pull-Ups", rx: "4 × 6-8", rest: "2 min", rpe: "8-9", tempo: "2-1-1-0", note: "Add weight via belt. Chin over bar.", q: "weighted pull ups" },
-        { id: "pl2", name: "Barbell Bent-Over Row", rx: "4 × 8-10", rest: "90s", rpe: "8-9", tempo: "2-1-1-0", note: "45° torso. Pull to lower chest.", q: "barbell bent over row" },
-        { id: "pl3", name: "Seated Cable Row", rx: "3 × 10-12", rest: "75s", rpe: "8", tempo: "2-1-2-0", note: "Close grip. Pause at chest.", q: "close grip seated cable row" },
-      ]},
-      { label: "ISOLATION", exercises: [
-        { id: "pl4", name: "Face Pulls", rx: "3 × 15-20", rest: "45s", rpe: "7", tempo: "2-1-2-0", note: "External rotate at top.", q: "face pulls cable" },
-        { id: "pl5", name: "Barbell Curl", rx: "3 × 8-10", rest: "60s", rpe: "8", tempo: "3-1-1-0", note: "Strict form. No swinging.", q: "barbell curl strict form" },
-        { id: "pl6", name: "Hammer Curls", rx: "3 × 10-12", rest: "60s", rpe: "7-8", tempo: "2-1-1-0", note: "Brachialis — arm thickness.", q: "dumbbell hammer curl" },
-        { id: "pl7", name: "Reverse Curls (EZ)", rx: "2 × 12-15", rest: "45s", rpe: "7", tempo: "2-0-2-0", note: "Forearm + pronation work.", q: "ez bar reverse curl" },
+      { label:"ISOLATION", exercises:[
+        { id:"p4", name:"Cable Flyes (low→high)", rx:"3 × 12-15", rest:"60s", rpe:"7-8", tempo:"2-1-2-0", note:"Squeeze at top. Upper chest.", q:"low to high cable fly" },
+        { id:"p5", name:"OH Tricep Extension", rx:"3 × 12-15", rest:"60s", rpe:"7-8", tempo:"2-1-2-0", note:"Long head — horseshoe builder.", q:"cable overhead tricep extension" },
+        { id:"p6", name:"Rope Pushdowns", rx:"3 × 12-15", rest:"60s", rpe:"7-8", tempo:"2-0-2-0", note:"Spread rope at bottom, squeeze.", q:"tricep rope pushdown" },
+        { id:"p7", name:"Lateral Raises", rx:"3 × 15-20", rest:"45s", rpe:"7", tempo:"2-0-2-0", note:"Light weight, control the negative.", q:"dumbbell lateral raise" },
       ]},
     ]
   },
-  { key: "legs", day: "WED", title: "LEGS", sub: "Quad / Ham / Glute", icon: "🦵", color: "#00B894",
-    sections: [
-      { label: "COMPOUND", exercises: [
-        { id: "l1", name: "Hack Squat", rx: "4 × 6-8", rest: "2-3 min", rpe: "8-9", tempo: "3-1-1-0", note: "Feet mid-platform. Below parallel. Ankle-friendly.", q: "hack squat machine form" },
-        { id: "l2", name: "Romanian Deadlift", rx: "3 × 8-10", rest: "90s", rpe: "8-9", tempo: "3-1-1-0", note: "Hinge at hips. Feel hamstrings.", q: "romanian deadlift barbell" },
-        { id: "l3", name: "Bulgarian Split Squat", rx: "3 × 10-12/leg", rest: "75s", rpe: "8", tempo: "2-1-1-0", note: "Rear foot elevated. Unilateral.", q: "bulgarian split squat" },
+  { key:"pull", day:"TUE", title:"PULL", sub:"Back / Biceps / Rear Delts", icon:"🏋️", color:C.orange,
+    sections:[
+      { label:"COMPOUND", exercises:[
+        { id:"pl1", name:"Weighted Pull-Ups", rx:"4 × 6-8", rest:"2 min", rpe:"8-9", tempo:"2-1-1-0", note:"Add weight via belt. Chin over bar.", q:"weighted pull ups" },
+        { id:"pl2", name:"Barbell Bent-Over Row", rx:"4 × 8-10", rest:"90s", rpe:"8-9", tempo:"2-1-1-0", note:"45° torso. Pull to lower chest.", q:"barbell bent over row" },
+        { id:"pl3", name:"Seated Cable Row", rx:"3 × 10-12", rest:"75s", rpe:"8", tempo:"2-1-2-0", note:"Close grip. Pause at chest.", q:"close grip seated cable row" },
       ]},
-      { label: "ISOLATION", exercises: [
-        { id: "l4", name: "Leg Press", rx: "3 × 12-15", rest: "75s", rpe: "8", tempo: "3-0-1-0", note: "High/wide = glutes, low = quads.", q: "leg press machine" },
-        { id: "l5", name: "Leg Curl", rx: "3 × 12-15", rest: "60s", rpe: "7-8", tempo: "2-1-2-0", note: "Squeeze at peak contraction.", q: "seated leg curl" },
-        { id: "l6", name: "Standing Calf Raise", rx: "4 × 12-15", rest: "45s", rpe: "8", tempo: "2-2-2-0", note: "Slow eccentric — ankle mob.", q: "standing calf raise" },
-        { id: "l7", name: "Goblet Squat Hold", rx: "2 × 30s", rest: "45s", rpe: "—", tempo: "Hold", note: "Deep squat. Hip + ankle mob.", q: "goblet squat hold mobility" },
-      ]},
-    ]
-  },
-  { key: "upper", day: "THU", title: "UPPER HYP", sub: "Pump — Chest & Arms", icon: "🔥", color: "#E17055",
-    sections: [
-      { label: "SUPERSETS", exercises: [
-        { id: "u1", name: "A1: Incline DB Flye", rx: "3 × 12-15", rest: "—", rpe: "7", tempo: "2-1-2-0", note: "Superset w/ A2. Deep stretch.", q: "incline dumbbell fly" },
-        { id: "u2", name: "A2: DB Pullover", rx: "3 × 12-15", rest: "60s", rpe: "7", tempo: "3-1-1-0", note: "Chest + serratus. T-spine bonus.", q: "dumbbell pullover" },
-        { id: "u3", name: "B1: Cable Crossover", rx: "3 × 15-20", rest: "—", rpe: "7", tempo: "2-0-2-0", note: "Superset w/ B2. Lower chest.", q: "high cable crossover" },
-        { id: "u4", name: "B2: Straight-Arm Pulldown", rx: "3 × 12-15", rest: "60s", rpe: "7", tempo: "2-1-2-0", note: "Lats + core. Arms straight.", q: "straight arm lat pulldown" },
-      ]},
-      { label: "ARMS CIRCUIT", exercises: [
-        { id: "u5", name: "C1: EZ Bar Curl", rx: "3 × 10-12", rest: "—", rpe: "8", tempo: "2-1-1-0", note: "Triset — C1→C2→C3, no rest.", q: "ez bar curl" },
-        { id: "u6", name: "C2: Close-Grip Bench", rx: "3 × 10-12", rest: "—", rpe: "8", tempo: "2-1-1-0", note: "Shoulder width. Tricep mass.", q: "close grip bench press" },
-        { id: "u7", name: "C3: Lateral Raise", rx: "3 × 15-20", rest: "90s", rpe: "7", tempo: "2-0-2-0", note: "Rest 90s after full round.", q: "dumbbell lateral raise" },
-      ]},
-      { label: "FINISHER", exercises: [
-        { id: "u8", name: "100 Push-Ups", rx: "100 total", rest: "—", rpe: "—", tempo: "—", note: "Any variation. Clock it.", q: "push up variations" },
+      { label:"ISOLATION", exercises:[
+        { id:"pl4", name:"Face Pulls", rx:"3 × 15-20", rest:"45s", rpe:"7", tempo:"2-1-2-0", note:"External rotate at top.", q:"face pulls cable" },
+        { id:"pl5", name:"Barbell Curl", rx:"3 × 8-10", rest:"60s", rpe:"8", tempo:"3-1-1-0", note:"Strict form. No swinging.", q:"barbell curl strict form" },
+        { id:"pl6", name:"Hammer Curls", rx:"3 × 10-12", rest:"60s", rpe:"7-8", tempo:"2-1-1-0", note:"Brachialis — arm thickness.", q:"dumbbell hammer curl" },
+        { id:"pl7", name:"Reverse Curls (EZ)", rx:"2 × 12-15", rest:"45s", rpe:"7", tempo:"2-0-2-0", note:"Forearm + pronation work.", q:"ez bar reverse curl" },
       ]},
     ]
   },
-  { key: "cond", day: "FRI", title: "CONDITIONING", sub: "Cardio + Core + Carries", icon: "⚡", color: "#FDCB6E",
-    sections: [
-      { label: "CARDIO (pick one)", exercises: [
-        { id: "c1", name: "Rower Intervals", rx: "8 × 250m", rest: "60s", rpe: "9", tempo: "—", note: "All-out each interval.", q: "concept 2 rower intervals" },
-        { id: "c1b", name: "Assault Bike Intervals", rx: "10 × 30s", rest: "30s", rpe: "9", tempo: "—", note: "Alternative to rower.", q: "assault bike intervals" },
+  { key:"legs", day:"WED", title:"LEGS", sub:"Quad / Ham / Glute", icon:"🦵", color:"#2a9d8f",
+    sections:[
+      { label:"COMPOUND", exercises:[
+        { id:"l1", name:"Hack Squat", rx:"4 × 6-8", rest:"2-3 min", rpe:"8-9", tempo:"3-1-1-0", note:"Feet mid-platform. Below parallel. Ankle-friendly.", q:"hack squat machine form" },
+        { id:"l2", name:"Romanian Deadlift", rx:"3 × 8-10", rest:"90s", rpe:"8-9", tempo:"3-1-1-0", note:"Hinge at hips. Feel hamstrings.", q:"romanian deadlift barbell" },
+        { id:"l3", name:"Bulgarian Split Squat", rx:"3 × 10-12/leg", rest:"75s", rpe:"8", tempo:"2-1-1-0", note:"Rear foot elevated. Unilateral.", q:"bulgarian split squat" },
       ]},
-      { label: "CARRIES & CORE", exercises: [
-        { id: "c2", name: "Farmer Carries", rx: "4 × 40 yd", rest: "60s", rpe: "8", tempo: "—", note: "Heavy. Grip, core, traps.", q: "farmer carry exercise" },
-        { id: "c3", name: "Sled Push", rx: "4 × 40 yd", rest: "60s", rpe: "9", tempo: "—", note: "Low handles. Drive through legs.", q: "sled push exercise" },
-        { id: "c4", name: "Hanging Leg Raise", rx: "3 × 12-15", rest: "45s", rpe: "8", tempo: "2-1-2-0", note: "Straight legs. Control it.", q: "hanging leg raise" },
-        { id: "c5", name: "Ab Wheel Rollout", rx: "3 × 10-12", rest: "45s", rpe: "8", tempo: "3-0-1-0", note: "From knees. Full extension.", q: "ab wheel rollout" },
-        { id: "c6", name: "Pallof Press", rx: "3 × 12/side", rest: "45s", rpe: "7", tempo: "2-2-2-0", note: "Anti-rotation. Obliques.", q: "pallof press cable" },
+      { label:"ISOLATION", exercises:[
+        { id:"l4", name:"Leg Press", rx:"3 × 12-15", rest:"75s", rpe:"8", tempo:"3-0-1-0", note:"High/wide = glutes, low = quads.", q:"leg press machine" },
+        { id:"l5", name:"Leg Curl", rx:"3 × 12-15", rest:"60s", rpe:"7-8", tempo:"2-1-2-0", note:"Squeeze at peak contraction.", q:"seated leg curl" },
+        { id:"l6", name:"Standing Calf Raise", rx:"4 × 12-15", rest:"45s", rpe:"8", tempo:"2-2-2-0", note:"Slow eccentric — ankle mob.", q:"standing calf raise" },
+        { id:"l7", name:"Goblet Squat Hold", rx:"2 × 30s", rest:"45s", rpe:"—", tempo:"Hold", note:"Deep squat. Hip + ankle mob.", q:"goblet squat hold mobility" },
       ]},
     ]
   },
-  { key: "mobility", day: "DAILY", title: "MOBILITY", sub: "T-Spine / Hips / Ankles / Forearms", icon: "🧘", color: "#A29BFE",
-    sections: [
-      { label: "T-SPINE", exercises: [
-        { id: "m1", name: "Foam Roller Extensions", rx: "2 × 10", rest: "—", rpe: "—", tempo: "—", note: "Roller mid-back. Extend over.", q: "foam roller thoracic extension" },
-        { id: "m2", name: "Open Books", rx: "2/side × 8", rest: "—", rpe: "—", tempo: "—", note: "Side-lying. Eyes follow hand.", q: "open book thoracic rotation" },
-        { id: "m3", name: "Cat-Cow", rx: "2 × 10", rest: "—", rpe: "—", tempo: "—", note: "Exaggerate both positions.", q: "cat cow stretch" },
-        { id: "m4", name: "Wall Slides", rx: "2 × 10", rest: "—", rpe: "—", tempo: "—", note: "Back flat. W→Y pattern.", q: "wall slide scapular exercise" },
+  { key:"upper", day:"THU", title:"UPPER HYP", sub:"Pump — Chest & Arms", icon:"🔥", color:C.gold,
+    sections:[
+      { label:"SUPERSETS", exercises:[
+        { id:"u1", name:"A1: Incline DB Flye", rx:"3 × 12-15", rest:"—", rpe:"7", tempo:"2-1-2-0", note:"Superset w/ A2. Deep stretch.", q:"incline dumbbell fly" },
+        { id:"u2", name:"A2: DB Pullover", rx:"3 × 12-15", rest:"60s", rpe:"7", tempo:"3-1-1-0", note:"Chest + serratus. T-spine bonus.", q:"dumbbell pullover" },
+        { id:"u3", name:"B1: Cable Crossover", rx:"3 × 15-20", rest:"—", rpe:"7", tempo:"2-0-2-0", note:"Superset w/ B2. Lower chest.", q:"high cable crossover" },
+        { id:"u4", name:"B2: Straight-Arm Pulldown", rx:"3 × 12-15", rest:"60s", rpe:"7", tempo:"2-1-2-0", note:"Lats + core. Arms straight.", q:"straight arm lat pulldown" },
       ]},
-      { label: "HIPS", exercises: [
-        { id: "m5", name: "90/90 Switches", rx: "2 × 8/side", rest: "—", rpe: "—", tempo: "—", note: "Sit tall. Control rotation.", q: "90 90 hip switch mobility" },
-        { id: "m6", name: "Couch Stretch", rx: "2/side × 45s", rest: "—", rpe: "—", tempo: "—", note: "Knee against wall. Squeeze glute.", q: "couch stretch hip flexor" },
-        { id: "m7", name: "Pigeon Pose", rx: "2/side × 45s", rest: "—", rpe: "—", tempo: "—", note: "Hips square. Walk hands fwd.", q: "pigeon pose stretch" },
+      { label:"ARMS CIRCUIT", exercises:[
+        { id:"u5", name:"C1: EZ Bar Curl", rx:"3 × 10-12", rest:"—", rpe:"8", tempo:"2-1-1-0", note:"Triset — C1→C2→C3, no rest.", q:"ez bar curl" },
+        { id:"u6", name:"C2: Close-Grip Bench", rx:"3 × 10-12", rest:"—", rpe:"8", tempo:"2-1-1-0", note:"Shoulder width. Tricep mass.", q:"close grip bench press" },
+        { id:"u7", name:"C3: Lateral Raise", rx:"3 × 15-20", rest:"90s", rpe:"7", tempo:"2-0-2-0", note:"Rest 90s after full round.", q:"dumbbell lateral raise" },
       ]},
-      { label: "ANKLES", exercises: [
-        { id: "m8", name: "Banded Dorsiflexion", rx: "2/side × 15", rest: "—", rpe: "—", tempo: "—", note: "Band at ankle. Knee over toe.", q: "banded ankle dorsiflexion" },
-        { id: "m9", name: "SL Calf Raise (slow)", rx: "2/side × 12", rest: "—", rpe: "—", tempo: "—", note: "3s up, 3s down.", q: "single leg calf raise slow eccentric" },
-        { id: "m10", name: "Ankle CARs", rx: "2/side × 8 ea", rest: "—", rpe: "—", tempo: "—", note: "Max range. Slow circles.", q: "ankle CARs rotation" },
+      { label:"FINISHER", exercises:[
+        { id:"u8", name:"100 Push-Ups", rx:"100 total", rest:"—", rpe:"—", tempo:"—", note:"Any variation. Clock it.", q:"push up variations" },
       ]},
-      { label: "FOREARMS", exercises: [
-        { id: "m11", name: "DB Pronation/Supination", rx: "2/side × 15", rest: "—", rpe: "—", tempo: "—", note: "Hold DB at end. Rotate slow.", q: "dumbbell forearm pronation supination" },
-        { id: "m12", name: "Wrist CARs", rx: "2/side × 8 ea", rest: "—", rpe: "—", tempo: "—", note: "Max range circles both ways.", q: "wrist CARs mobility" },
-        { id: "m13", name: "Banded Rotations", rx: "2/side × 12", rest: "—", rpe: "—", tempo: "—", note: "Pronate against band.", q: "banded forearm pronation" },
+    ]
+  },
+  { key:"cond", day:"FRI", title:"CONDITIONING", sub:"Cardio + Core + Carries", icon:"⚡", color:C.red,
+    sections:[
+      { label:"CARDIO (pick one)", exercises:[
+        { id:"c1", name:"Rower Intervals", rx:"8 × 250m", rest:"60s", rpe:"9", tempo:"—", note:"All-out each interval.", q:"concept 2 rower intervals" },
+        { id:"c1b", name:"Assault Bike Intervals", rx:"10 × 30s", rest:"30s", rpe:"9", tempo:"—", note:"Alternative to rower.", q:"assault bike intervals" },
+      ]},
+      { label:"CARRIES & CORE", exercises:[
+        { id:"c2", name:"Farmer Carries", rx:"4 × 40 yd", rest:"60s", rpe:"8", tempo:"—", note:"Heavy. Grip, core, traps.", q:"farmer carry exercise" },
+        { id:"c3", name:"Sled Push", rx:"4 × 40 yd", rest:"60s", rpe:"9", tempo:"—", note:"Low handles. Drive through legs.", q:"sled push exercise" },
+        { id:"c4", name:"Hanging Leg Raise", rx:"3 × 12-15", rest:"45s", rpe:"8", tempo:"2-1-2-0", note:"Straight legs. Control it.", q:"hanging leg raise" },
+        { id:"c5", name:"Ab Wheel Rollout", rx:"3 × 10-12", rest:"45s", rpe:"8", tempo:"3-0-1-0", note:"From knees. Full extension.", q:"ab wheel rollout" },
+        { id:"c6", name:"Pallof Press", rx:"3 × 12/side", rest:"45s", rpe:"7", tempo:"2-2-2-0", note:"Anti-rotation. Obliques.", q:"pallof press cable" },
+      ]},
+    ]
+  },
+  { key:"mobility", day:"DAILY", title:"MOBILITY", sub:"T-Spine / Hips / Ankles / Forearms", icon:"🧘", color:C.orange,
+    sections:[
+      { label:"T-SPINE", exercises:[
+        { id:"m1", name:"Foam Roller Extensions", rx:"2 × 10", rest:"—", rpe:"—", tempo:"—", note:"Roller mid-back. Extend over.", q:"foam roller thoracic extension" },
+        { id:"m2", name:"Open Books", rx:"2/side × 8", rest:"—", rpe:"—", tempo:"—", note:"Side-lying. Eyes follow hand.", q:"open book thoracic rotation" },
+        { id:"m3", name:"Cat-Cow", rx:"2 × 10", rest:"—", rpe:"—", tempo:"—", note:"Exaggerate both positions.", q:"cat cow stretch" },
+        { id:"m4", name:"Wall Slides", rx:"2 × 10", rest:"—", rpe:"—", tempo:"—", note:"Back flat. W→Y pattern.", q:"wall slide scapular exercise" },
+      ]},
+      { label:"HIPS", exercises:[
+        { id:"m5", name:"90/90 Switches", rx:"2 × 8/side", rest:"—", rpe:"—", tempo:"—", note:"Sit tall. Control rotation.", q:"90 90 hip switch mobility" },
+        { id:"m6", name:"Couch Stretch", rx:"2/side × 45s", rest:"—", rpe:"—", tempo:"—", note:"Knee against wall. Squeeze glute.", q:"couch stretch hip flexor" },
+        { id:"m7", name:"Pigeon Pose", rx:"2/side × 45s", rest:"—", rpe:"—", tempo:"—", note:"Hips square. Walk hands fwd.", q:"pigeon pose stretch" },
+      ]},
+      { label:"ANKLES", exercises:[
+        { id:"m8", name:"Banded Dorsiflexion", rx:"2/side × 15", rest:"—", rpe:"—", tempo:"—", note:"Band at ankle. Knee over toe.", q:"banded ankle dorsiflexion" },
+        { id:"m9", name:"SL Calf Raise (slow)", rx:"2/side × 12", rest:"—", rpe:"—", tempo:"—", note:"3s up, 3s down.", q:"single leg calf raise slow eccentric" },
+        { id:"m10", name:"Ankle CARs", rx:"2/side × 8 ea", rest:"—", rpe:"—", tempo:"—", note:"Max range. Slow circles.", q:"ankle CARs rotation" },
+      ]},
+      { label:"FOREARMS", exercises:[
+        { id:"m11", name:"DB Pronation/Supination", rx:"2/side × 15", rest:"—", rpe:"—", tempo:"—", note:"Hold DB at end. Rotate slow.", q:"dumbbell forearm pronation supination" },
+        { id:"m12", name:"Wrist CARs", rx:"2/side × 8 ea", rest:"—", rpe:"—", tempo:"—", note:"Max range circles both ways.", q:"wrist CARs mobility" },
+        { id:"m13", name:"Banded Rotations", rx:"2/side × 12", rest:"—", rpe:"—", tempo:"—", note:"Pronate against band.", q:"banded forearm pronation" },
       ]},
     ]
   },
 ];
 
-const ALL_EX_IDS = [];
-DAYS.forEach(d => d.sections.forEach(s => s.exercises.forEach(e => ALL_EX_IDS.push(e.id))));
+const ALL_EX_IDS = []; DAYS.forEach(d=>d.sections.forEach(s=>s.exercises.forEach(e=>ALL_EX_IDS.push(e.id))));
 const TOTAL_EX = ALL_EX_IDS.length;
 const STORAGE_KEY = "cut12wk-data";
 
-function getDayExIds(k) { const d = DAYS.find(x => x.key === k); const ids = []; if(d) d.sections.forEach(s => s.exercises.forEach(e => ids.push(e.id))); return ids; }
-function ytUrl(q) { return "https://www.youtube.com/results?search_query=" + encodeURIComponent(q + " form demo"); }
+function getDayExIds(k){const d=DAYS.find(x=>x.key===k);const ids=[];if(d)d.sections.forEach(s=>s.exercises.forEach(e=>ids.push(e.id)));return ids;}
+function ytUrl(q){return"https://www.youtube.com/results?search_query="+encodeURIComponent(q+" form demo");}
+function loadData(){try{const r=localStorage.getItem(STORAGE_KEY);if(r)return JSON.parse(r);}catch(e){}return null;}
+function saveData(d){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(d));return true;}catch(e){return false;}}
 
-function loadData() {
-  try { const raw = localStorage.getItem(STORAGE_KEY); if (raw) return JSON.parse(raw); } catch(e) {}
-  return null;
-}
-function saveData(data) {
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); return true; } catch(e) { return false; }
-}
+function App(){
+  const saved=useRef(loadData());
+  const[allWeeks,setAllWeeks]=useState(saved.current?.weeks||{});
+  const[currentWeek,setCurrentWeek]=useState(saved.current?.currentWeek||1);
+  const[weightInputs,setWeightInputs]=useState(saved.current?.weights||{});
+  const[expanded,setExpanded]=useState({});
+  const[flash,setFlash]=useState(null);
+  const[dayComplete,setDayComplete]=useState(null);
+  const[view,setView]=useState("workout");
+  const[saveStatus,setSaveStatus]=useState(saved.current?"✓":"");
+  const timer=useRef(null);
 
-function App() {
-  const saved = useRef(loadData());
-  const [allWeeks, setAllWeeks] = useState(saved.current?.weeks || {});
-  const [currentWeek, setCurrentWeek] = useState(saved.current?.currentWeek || 1);
-  const [weightInputs, setWeightInputs] = useState(saved.current?.weights || {});
-  const [expanded, setExpanded] = useState({});
-  const [flash, setFlash] = useState(null);
-  const [dayComplete, setDayComplete] = useState(null);
-  const [view, setView] = useState("workout");
-  const [saveStatus, setSaveStatus] = useState(saved.current ? "✓ Loaded" : "");
-  const saveTimer = useRef(null);
+  useEffect(()=>{if(saved.current)setTimeout(()=>setSaveStatus(""),1500);},[]);
 
-  useEffect(() => { if (saved.current) setTimeout(() => setSaveStatus(""), 2000); }, []);
-
-  const persist = (weeks, weights, week) => {
-    if (saveTimer.current) clearTimeout(saveTimer.current);
-    saveTimer.current = setTimeout(() => {
-      const ok = saveData({ weeks, weights, currentWeek: week });
-      setSaveStatus(ok ? "✓ Saved" : "⚠ Save failed");
-      setTimeout(() => setSaveStatus(""), 2000);
-    }, 300);
+  const persist=(w,wt,wk)=>{
+    if(timer.current)clearTimeout(timer.current);
+    timer.current=setTimeout(()=>{
+      const ok=saveData({weeks:w,weights:wt,currentWeek:wk});
+      setSaveStatus(ok?"✓":"⚠");setTimeout(()=>setSaveStatus(""),1500);
+    },300);
   };
 
-  const getDone = (wk) => allWeeks[wk] || {};
-  const done = getDone(currentWeek);
+  const getDone=(wk)=>allWeeks[wk]||{};
+  const done=getDone(currentWeek);
 
-  const toggle = (id, dayKey) => {
-    const weekDone = { ...done };
-    if (weekDone[id]) delete weekDone[id];
-    else {
-      weekDone[id] = true;
-      setFlash(id); setTimeout(() => setFlash(null), 600);
-      const dayIds = getDayExIds(dayKey);
-      if (dayIds.every(eid => eid === id || weekDone[eid])) { setDayComplete(dayKey); setTimeout(() => setDayComplete(null), 2000); }
+  const toggle=(id,dayKey)=>{
+    const wd={...done};
+    if(wd[id])delete wd[id];
+    else{wd[id]=true;setFlash(id);setTimeout(()=>setFlash(null),600);
+      const di=getDayExIds(dayKey);if(di.every(e=>e===id||wd[e])){setDayComplete(dayKey);setTimeout(()=>setDayComplete(null),2200);}
     }
-    const next = { ...allWeeks, [currentWeek]: weekDone };
-    setAllWeeks(next);
-    persist(next, weightInputs, currentWeek);
+    const nw={...allWeeks,[currentWeek]:wd};setAllWeeks(nw);persist(nw,weightInputs,currentWeek);
   };
 
-  const updateWeight = (wk, val) => {
-    const next = { ...weightInputs, [wk]: val };
-    setWeightInputs(next);
-    persist(allWeeks, next, currentWeek);
-  };
+  const updateWeight=(wk,val)=>{const nw={...weightInputs,[wk]:val};setWeightInputs(nw);persist(allWeeks,nw,currentWeek);};
+  const switchWeek=(wk)=>{setCurrentWeek(wk);setExpanded({});persist(allWeeks,weightInputs,wk);};
+  const weekPct=(wk)=>{const d=getDone(wk);return Math.round((Object.keys(d).length/TOTAL_EX)*100);};
 
-  const switchWeek = (wk) => { setCurrentWeek(wk); setExpanded({}); persist(allWeeks, weightInputs, wk); };
-  const weekPct = (wk) => { const d = getDone(wk); return Math.round((Object.keys(d).length / TOTAL_EX) * 100); };
+  const curPct=weekPct(currentWeek);
+  const curDone=Object.keys(done).length;
+  const targetWeight=200-(currentWeek*1.25);
 
-  const curPct = weekPct(currentWeek);
-  const curDone = Object.keys(done).length;
-  const targetWeight = 200 - (currentWeek * 1.25);
+  const Logo=()=>(
+    <svg viewBox="0 0 120 120" style={{width:36,height:36}}>
+      <rect width="120" height="120" rx="24" fill={C.navy}/>
+      <text x="60" y="52" textAnchor="middle" fontFamily="Arial Black,Arial,sans-serif" fontWeight="900" fontSize="38" fill={C.gold} letterSpacing="-2">CUT</text>
+      <text x="60" y="92" textAnchor="middle" fontFamily="Arial Black,Arial,sans-serif" fontWeight="900" fontSize="48" fill={C.orange} letterSpacing="-1">12</text>
+      <rect x="15" y="56" width="90" height="4" rx="2" fill={C.red}/>
+    </svg>
+  );
 
-  return (
-    <div style={{ paddingBottom: 20 }}>
-      {dayComplete && (
-        <div style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 200, background: "linear-gradient(135deg, #00B894, #00CEC9)", padding: "14px 20px", textAlign: "center", animation: "completeBanner 2s ease forwards" }}>
-          <div style={{ fontSize: 22 }}>🎉</div>
-          <div style={{ fontSize: 15, fontWeight: 800, color: "#fff" }}>{DAYS.find(d => d.key === dayComplete)?.title} COMPLETE</div>
-          <div style={{ fontSize: 11, color: "#ffffff99" }}>Crushed it.</div>
-        </div>
-      )}
+  return(
+    <div className="shell">
+      <div className="app-wrap" style={{background:C.bg,minHeight:"100vh"}}>
 
-      {/* HEADER */}
-      <div style={{ background: "linear-gradient(135deg, #1a1a2e, #16213e)", padding: "14px 16px 12px", borderBottom: "1px solid #2a2a3e" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <div>
-            <div style={{ fontSize: 14, fontWeight: 800, letterSpacing: 2, color: "#E94560" }}>12-WEEK CUT</div>
-            <div style={{ fontSize: 11, color: "#555" }}>200 → 185 lbs</div>
+        {dayComplete&&(
+          <div style={{position:"fixed",top:0,left:0,right:0,zIndex:200,background:`linear-gradient(135deg,${C.orange},${C.gold})`,padding:"14px 20px",textAlign:"center",animation:"completeBanner 2.2s ease forwards"}}>
+            <div style={{fontSize:24}}>🎉</div>
+            <div style={{fontSize:16,fontWeight:800,color:C.navy}}>{DAYS.find(d=>d.key===dayComplete)?.title} COMPLETE</div>
+            <div style={{fontSize:11,color:"#003049aa"}}>Crushed it.</div>
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            {saveStatus && <span style={{ fontSize: 9, fontWeight: 700, color: saveStatus.includes("✓") ? "#00B894" : "#E94560", background: saveStatus.includes("✓") ? "#00B89415" : "#E9456015", padding: "3px 8px", borderRadius: 6 }}>{saveStatus}</span>}
-            <div style={{ textAlign: "right" }}>
-              <div style={{ fontSize: 11, color: "#888" }}>Overall</div>
-              <div style={{ fontSize: 13, fontWeight: 800, color: "#6C5CE7" }}>
-                {Math.round(Array.from({length:12},(_,i)=>weekPct(i+1)).reduce((a,b)=>a+b,0)/12)}%
+        )}
+
+        {/* HEADER */}
+        <div style={{background:`linear-gradient(135deg,${C.navy},#004060)`,padding:"14px 16px 12px",borderBottom:`2px solid ${C.orange}`}}>
+          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+            <div style={{display:"flex",alignItems:"center",gap:10}}>
+              <Logo/>
+              <div>
+                <div style={{fontSize:16,fontWeight:800,letterSpacing:1,color:C.gold}}>CUT12</div>
+                <div style={{fontSize:10,color:C.dim}}>200 → 185 lbs</div>
+              </div>
+            </div>
+            <div style={{display:"flex",alignItems:"center",gap:10}}>
+              {saveStatus&&<span style={{fontSize:9,fontWeight:700,color:saveStatus==="✓"?C.gold:C.red,background:saveStatus==="✓"?"rgba(252,191,73,0.15)":"rgba(214,40,40,0.15)",padding:"3px 8px",borderRadius:6}}>{saveStatus==="✓"?"Saved ✓":"Save ⚠"}</span>}
+              <div style={{textAlign:"right"}}>
+                <div style={{fontSize:10,color:C.dim}}>Overall</div>
+                <div style={{fontSize:14,fontWeight:800,color:C.orange}}>{Math.round(Array.from({length:12},(_,i)=>weekPct(i+1)).reduce((a,b)=>a+b,0)/12)}%</div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* WEEK SELECTOR */}
-      <div style={{ padding: "10px 0 6px", borderBottom: "1px solid #1e1e2e", background: "#141420" }}>
-        <div style={{ overflowX: "auto", display: "flex", gap: 6, padding: "0 12px" }}>
-          {Array.from({length:12},(_,i)=>i+1).map(wk => {
-            const pct = weekPct(wk); const isCur = wk===currentWeek; const comp = pct===100;
-            return (<button key={wk} onClick={()=>switchWeek(wk)} style={{ flexShrink:0, width:52, padding:"6px 0", borderRadius:10, border:"none", cursor:"pointer", fontFamily:"inherit", textAlign:"center", background: isCur?"#E94560":comp?"#00B89425":"#1e1e2e" }}>
-              <div style={{ fontSize:9, fontWeight:700, color:isCur?"#fff":"#666", letterSpacing:0.5 }}>WK {wk}</div>
-              <div style={{ fontSize:12, fontWeight:800, color:isCur?"#fff":comp?"#00B894":"#888", marginTop:1 }}>{comp?"✓":pct>0?pct+"%":"—"}</div>
-            </button>);
-          })}
-        </div>
-      </div>
-
-      {/* WEEK HEADER */}
-      <div style={{ padding: "12px 16px 8px", background: "#131320" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <div>
-            <span style={{ fontSize: 18, fontWeight: 800 }}>Week {currentWeek}</span>
-            <span style={{ fontSize: 12, color: "#555", marginLeft: 8 }}>Target: ~{targetWeight.toFixed(0)} lbs</span>
-          </div>
-          <div style={{ textAlign: "right" }}>
-            <div style={{ fontSize: 22, fontWeight: 800, color: curPct===100?"#00B894":"#F8F8F2" }}>{curPct}%</div>
-            <div style={{ fontSize: 10, color: "#555" }}>{curDone}/{TOTAL_EX}</div>
-          </div>
-        </div>
-        <div style={{ background: "#2a2a3e", borderRadius: 6, height: 6, marginTop: 8, overflow: "hidden" }}>
-          <div style={{ height: "100%", borderRadius: 6, width: curPct+"%", background: curPct===100?"#00B894":"linear-gradient(90deg, #E94560, #6C5CE7)", transition: "width 0.4s" }} />
-        </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 10 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 4, background: "#1e1e2e", borderRadius: 8, padding: "4px 8px" }}>
-            <span style={{ fontSize: 10, color: "#888" }}>Weigh-in:</span>
-            <input type="number" inputMode="decimal" placeholder="—" value={weightInputs[currentWeek]||""} onChange={e=>updateWeight(currentWeek,e.target.value)} style={{ width:48, background:"transparent", border:"none", color:"#F8F8F2", fontSize:14, fontWeight:700, fontFamily:"inherit", outline:"none", textAlign:"center" }} />
-            <span style={{ fontSize: 10, color: "#555" }}>lbs</span>
-          </div>
-          <div style={{ display: "flex", gap: 3, flex: 1, justifyContent: "flex-end" }}>
-            {DAYS.map(d => { const ids=getDayExIds(d.key); const cnt=ids.filter(id=>done[id]).length; const comp=cnt===ids.length; const started=cnt>0;
-              return (<div key={d.key} style={{ width:22, height:22, borderRadius:6, background:comp?"#00B894":started?d.color+"30":"#2a2a3e", border:"1.5px solid "+(comp?"#00B894":started?d.color:"#333"), display:"flex", alignItems:"center", justifyContent:"center", fontSize:7, fontWeight:800, color:comp?"#fff":started?d.color:"#444" }}>{comp?"✓":d.day.slice(0,2)}</div>);
+        {/* WEEK SELECTOR */}
+        <div style={{padding:"10px 0 6px",borderBottom:"1px solid #0a4060",background:"#002a42"}}>
+          <div style={{overflowX:"auto",display:"flex",gap:6,padding:"0 12px"}}>
+            {Array.from({length:12},(_,i)=>i+1).map(wk=>{
+              const pct=weekPct(wk);const isCur=wk===currentWeek;const comp=pct===100;
+              return(<button key={wk} onClick={()=>switchWeek(wk)} style={{flexShrink:0,width:52,padding:"6px 0",borderRadius:10,border:isCur?`2px solid ${C.orange}`:"2px solid transparent",cursor:"pointer",fontFamily:"inherit",textAlign:"center",background:isCur?C.navy:comp?"rgba(252,191,73,0.1)":"#003a56",transition:"all 0.15s"}}>
+                <div style={{fontSize:9,fontWeight:700,color:isCur?C.gold:C.dim,letterSpacing:0.5}}>WK {wk}</div>
+                <div style={{fontSize:12,fontWeight:800,color:isCur?C.orange:comp?C.gold:"#5a8a9f",marginTop:1}}>{comp?"✓":pct>0?pct+"%":"—"}</div>
+              </button>);
             })}
           </div>
         </div>
-      </div>
 
-      {/* NAV */}
-      <div style={{ display: "flex", gap: 6, padding: "8px 12px", background: "#111119" }}>
-        {["workout","food","progress"].map(v => (
-          <button key={v} onClick={()=>setView(v)} style={{ flex:1, padding:"7px 0", borderRadius:8, border:"none", cursor:"pointer", fontFamily:"inherit", fontSize:11, fontWeight:700, letterSpacing:0.5, background:view===v?"#E94560":"#1e1e2e", color:view===v?"#fff":"#555", transition:"all 0.15s" }}>
-            {v==="workout"?"TRAINING":v==="food"?"NUTRITION":"PROGRESS"}
-          </button>
-        ))}
-      </div>
+        {/* WEEK HEADER */}
+        <div style={{padding:"12px 16px 8px",background:"#002035"}}>
+          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+            <div>
+              <span style={{fontSize:18,fontWeight:800,color:C.text}}>Week {currentWeek}</span>
+              <span style={{fontSize:12,color:C.dim,marginLeft:8}}>Target: ~{targetWeight.toFixed(0)} lbs</span>
+            </div>
+            <div style={{textAlign:"right"}}>
+              <div style={{fontSize:22,fontWeight:800,color:curPct===100?C.gold:C.text}}>{curPct}%</div>
+              <div style={{fontSize:10,color:C.dim}}>{curDone}/{TOTAL_EX}</div>
+            </div>
+          </div>
+          <div style={{background:"#0a4060",borderRadius:6,height:6,marginTop:8,overflow:"hidden"}}>
+            <div style={{height:"100%",borderRadius:6,width:curPct+"%",background:curPct===100?C.gold:`linear-gradient(90deg,${C.red},${C.orange})`,transition:"width 0.4s"}}/>
+          </div>
+          <div style={{display:"flex",alignItems:"center",gap:8,marginTop:10}}>
+            <div style={{display:"flex",alignItems:"center",gap:4,background:C.card,borderRadius:8,padding:"4px 8px"}}>
+              <span style={{fontSize:10,color:C.dim}}>Weigh-in:</span>
+              <input type="number" inputMode="decimal" placeholder="—" value={weightInputs[currentWeek]||""} onChange={e=>updateWeight(currentWeek,e.target.value)} style={{width:48,background:"transparent",border:"none",color:C.gold,fontSize:14,fontWeight:700,fontFamily:"inherit",outline:"none",textAlign:"center"}}/>
+              <span style={{fontSize:10,color:C.dim}}>lbs</span>
+            </div>
+            <div style={{display:"flex",gap:3,flex:1,justifyContent:"flex-end"}}>
+              {DAYS.map(d=>{const ids=getDayExIds(d.key);const cnt=ids.filter(id=>done[id]).length;const comp=cnt===ids.length;const started=cnt>0;
+                return(<div key={d.key} style={{width:22,height:22,borderRadius:6,background:comp?C.gold:started?d.color+"30":"#0a4060",border:"1.5px solid "+(comp?C.gold:started?d.color:"#0a5070"),display:"flex",alignItems:"center",justifyContent:"center",fontSize:7,fontWeight:800,color:comp?C.navy:started?d.color:C.dim}}>{comp?"✓":d.day.slice(0,2)}</div>);
+              })}
+            </div>
+          </div>
+        </div>
 
-      <div style={{ padding: "6px 10px" }}>
-        {view === "workout" && DAYS.map(day => {
-          const dayIds=getDayExIds(day.key); const dayDone=dayIds.filter(id=>done[id]).length; const dayTotal=dayIds.length; const isComp=dayDone===dayTotal; const isOpen=!!expanded[day.key];
-          return (
-            <div key={day.key} style={{ marginBottom: 6 }}>
-              <div onClick={()=>setExpanded(p=>({...p,[day.key]:!isOpen}))} style={{ background:isComp?"#00B89412":"#1a1a28", borderRadius:12, padding:"11px 12px", cursor:"pointer", borderLeft:"4px solid "+(isComp?"#00B894":day.color), display:"flex", alignItems:"center", gap:10 }}>
-                <div style={{ fontSize:22 }}>{isComp?"✅":day.icon}</div>
-                <div style={{ flex:1 }}>
-                  <div style={{ display:"flex", alignItems:"center", gap:6 }}>
-                    <span style={{ fontSize:9, fontWeight:800, color:day.color, letterSpacing:1 }}>{day.day}</span>
-                    <span style={{ fontSize:14, fontWeight:800, color:isComp?"#00B894":"#F8F8F2" }}>{day.title}</span>
-                    {isComp && <span style={{ fontSize:9, color:"#00B894", fontWeight:600 }}>DONE</span>}
-                  </div>
-                  <div style={{ fontSize:10, color:"#555" }}>{day.sub}</div>
-                  <div style={{ display:"flex", alignItems:"center", gap:8, marginTop:5 }}>
-                    <div style={{ flex:1, background:"#333", borderRadius:3, height:3, overflow:"hidden" }}>
-                      <div style={{ height:"100%", borderRadius:3, width:(dayDone/dayTotal*100)+"%", background:isComp?"#00B894":day.color, transition:"width 0.3s" }} />
+        {/* NAV */}
+        <div style={{display:"flex",gap:6,padding:"8px 12px",background:C.bg}}>
+          {["workout","food","progress"].map(v=>(
+            <button key={v} onClick={()=>setView(v)} style={{flex:1,padding:"8px 0",borderRadius:8,border:"none",cursor:"pointer",fontFamily:"inherit",fontSize:11,fontWeight:700,letterSpacing:0.5,background:view===v?C.red:C.card,color:view===v?"#fff":C.dim,transition:"all 0.15s"}}>
+              {v==="workout"?"TRAINING":v==="food"?"NUTRITION":"PROGRESS"}
+            </button>
+          ))}
+        </div>
+
+        <div style={{padding:"6px 10px",paddingBottom:20}}>
+          {view==="workout"&&DAYS.map(day=>{
+            const dayIds=getDayExIds(day.key);const dayDone=dayIds.filter(id=>done[id]).length;const dayTotal=dayIds.length;const isComp=dayDone===dayTotal;const isOpen=!!expanded[day.key];
+            return(
+              <div key={day.key} style={{marginBottom:6}}>
+                <div onClick={()=>setExpanded(p=>({...p,[day.key]:!isOpen}))} style={{background:isComp?"rgba(252,191,73,0.08)":C.card,borderRadius:12,padding:"11px 12px",cursor:"pointer",borderLeft:"4px solid "+(isComp?C.gold:day.color),display:"flex",alignItems:"center",gap:10,transition:"all 0.2s"}}>
+                  <div style={{fontSize:22}}>{isComp?"✅":day.icon}</div>
+                  <div style={{flex:1}}>
+                    <div style={{display:"flex",alignItems:"center",gap:6}}>
+                      <span style={{fontSize:9,fontWeight:800,color:day.color,letterSpacing:1}}>{day.day}</span>
+                      <span style={{fontSize:14,fontWeight:800,color:isComp?C.gold:C.text}}>{day.title}</span>
+                      {isComp&&<span style={{fontSize:9,color:C.gold,fontWeight:600}}>DONE</span>}
                     </div>
-                    <span style={{ fontSize:10, fontWeight:700, color:isComp?"#00B894":"#666", minWidth:30, textAlign:"right" }}>{dayDone}/{dayTotal}</span>
+                    <div style={{fontSize:10,color:C.dim}}>{day.sub}</div>
+                    <div style={{display:"flex",alignItems:"center",gap:8,marginTop:5}}>
+                      <div style={{flex:1,background:"#0a4060",borderRadius:3,height:3,overflow:"hidden"}}>
+                        <div style={{height:"100%",borderRadius:3,width:(dayDone/dayTotal*100)+"%",background:isComp?C.gold:day.color,transition:"width 0.3s"}}/>
+                      </div>
+                      <span style={{fontSize:10,fontWeight:700,color:isComp?C.gold:C.dim,minWidth:30,textAlign:"right"}}>{dayDone}/{dayTotal}</span>
+                    </div>
                   </div>
+                  <div style={{color:C.dim,fontSize:12}}>{isOpen?"▲":"▼"}</div>
                 </div>
-                <div style={{ color:"#333", fontSize:12 }}>{isOpen?"▲":"▼"}</div>
+                {isOpen&&(
+                  <div style={{paddingTop:3}}>
+                    {day.sections.map((sec,si)=>(
+                      <div key={si}>
+                        <div style={{fontSize:9,fontWeight:800,color:day.color,letterSpacing:2,padding:"6px 10px 3px",opacity:0.7}}>{sec.label}</div>
+                        {sec.exercises.map(ex=>{
+                          const isDone=!!done[ex.id];const isFlash=flash===ex.id;
+                          return(
+                            <div key={ex.id} style={{display:"flex",alignItems:"center",gap:8,padding:"9px 8px",marginBottom:1,borderRadius:7,background:isFlash?"rgba(252,191,73,0.15)":isDone?"rgba(252,191,73,0.05)":"#002a42",animation:isFlash?"flashDone 0.6s ease-out":"none",transition:"background 0.2s"}}>
+                              <div onClick={()=>toggle(ex.id,day.key)} style={{width:28,height:28,borderRadius:7,border:isDone?`2px solid ${C.gold}`:"2px solid #0a5070",background:isDone?C.gold:"transparent",display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",flexShrink:0,animation:isFlash?"checkPop 0.4s ease":"none",transition:"all 0.15s"}}>
+                                {isDone&&<span style={{color:C.navy,fontSize:14,fontWeight:800}}>✓</span>}
+                              </div>
+                              <div style={{flex:1,minWidth:0}}>
+                                <div style={{fontWeight:700,fontSize:13,color:isDone?"rgba(252,191,73,0.5)":C.text,textDecoration:isDone?"line-through":"none",transition:"all 0.2s"}}>{ex.name}</div>
+                                <div style={{fontSize:10,color:C.sub,marginTop:1}}>{ex.rx}{ex.rest!=="—"?" · "+ex.rest:""}{ex.rpe!=="—"?" · RPE "+ex.rpe:""}</div>
+                                <div style={{fontSize:9,color:C.dim,marginTop:1}}>{ex.tempo!=="—"?ex.tempo+" · ":""}{ex.note}</div>
+                              </div>
+                              <a href={ytUrl(ex.q)} target="_blank" rel="noopener noreferrer" style={{color:C.red,fontSize:18,textDecoration:"none",flexShrink:0,padding:3}}>▶</a>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
-              {isOpen && (
-                <div style={{ paddingTop:3 }}>
-                  {day.sections.map((sec,si) => (
-                    <div key={si}>
-                      <div style={{ fontSize:9, fontWeight:800, color:day.color, letterSpacing:2, padding:"6px 10px 3px", opacity:0.6 }}>{sec.label}</div>
-                      {sec.exercises.map(ex => {
-                        const isDone=!!done[ex.id]; const isFlash=flash===ex.id;
-                        return (
-                          <div key={ex.id} style={{ display:"flex", alignItems:"center", gap:8, padding:"9px 8px", marginBottom:1, borderRadius:7, background:isFlash?"#00B89420":isDone?"#13201a":"#15151f", animation:isFlash?"flashGreen 0.6s ease-out":"none" }}>
-                            <div onClick={()=>toggle(ex.id,day.key)} style={{ width:28, height:28, borderRadius:7, border:isDone?"2px solid #00B894":"2px solid #3a3a4e", background:isDone?"#00B894":"transparent", display:"flex", alignItems:"center", justifyContent:"center", cursor:"pointer", flexShrink:0, animation:isFlash?"checkPop 0.4s ease":"none" }}>
-                              {isDone && <span style={{ color:"#fff", fontSize:14, fontWeight:800 }}>✓</span>}
-                            </div>
-                            <div style={{ flex:1, minWidth:0 }}>
-                              <div style={{ fontWeight:700, fontSize:13, color:isDone?"#00B89480":"#F8F8F2", textDecoration:isDone?"line-through":"none" }}>{ex.name}</div>
-                              <div style={{ fontSize:10, color:"#666", marginTop:1 }}>{ex.rx}{ex.rest!=="—"?" · "+ex.rest:""}{ex.rpe!=="—"?" · RPE "+ex.rpe:""}</div>
-                              <div style={{ fontSize:9, color:"#444", marginTop:1 }}>{ex.tempo!=="—"?ex.tempo+" · ":""}{ex.note}</div>
-                            </div>
-                            <a href={ytUrl(ex.q)} target="_blank" rel="noopener noreferrer" style={{ color:"#E94560", fontSize:18, textDecoration:"none", flexShrink:0, padding:3 }}>▶</a>
-                          </div>
-                        );
-                      })}
+            );
+          })}
+
+          {view==="food"&&(
+            <div>
+              <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:5,margin:"6px 0 14px"}}>
+                {[{l:"Cal",v:"2,155",c:C.red},{l:"Protein",v:"201g",c:C.orange},{l:"Carbs",v:"170g",c:C.gold},{l:"Fat",v:"83g",c:"#2a9d8f"}].map((m,i)=>(
+                  <div key={i} style={{background:C.card,borderRadius:10,padding:"9px 4px",textAlign:"center",borderTop:"3px solid "+m.c}}>
+                    <div style={{fontSize:15,fontWeight:800,color:m.c}}>{m.v}</div>
+                    <div style={{fontSize:9,color:C.dim,marginTop:1}}>{m.l}</div>
+                  </div>
+                ))}
+              </div>
+              {[
+                {meal:"MEAL 1",time:"7-8am",items:["4 eggs + 1 tbsp butter — 24P","1 slice sourdough — 4P","1 cup berries — 1P"]},
+                {meal:"MEAL 2",time:"12-1pm",items:["8 oz chicken breast — 52P","1 cup rice + 1 tbsp butter — 4P","Veggies — 3P"]},
+                {meal:"MEAL 3",time:"5-6pm",items:["8 oz NY strip — 46P","1 baked potato + 1 tbsp butter — 4P","Side salad/veggies — 2P"]},
+                {meal:"SHAKE",time:"Post-WO",items:["2 scoops whey isolate — 48P","1 banana — 1P"]},
+              ].map((m,mi)=>(
+                <div key={mi} style={{marginBottom:10}}>
+                  <div style={{display:"flex",justifyContent:"space-between",marginBottom:3}}>
+                    <span style={{fontSize:12,fontWeight:800,color:C.red}}>{m.meal}</span>
+                    <span style={{fontSize:10,color:C.dim}}>{m.time}</span>
+                  </div>
+                  {m.items.map((item,ii)=>(
+                    <div key={ii} style={{padding:"6px 10px",background:ii%2===0?C.card:C.cardAlt,borderRadius:6,marginBottom:1,fontSize:12,color:C.sub}}>{item}</div>
+                  ))}
+                </div>
+              ))}
+              <div style={{background:C.card,borderRadius:10,padding:10,borderLeft:`3px solid ${C.orange}`,marginTop:6}}>
+                <div style={{fontSize:10,color:C.orange,fontWeight:700,marginBottom:3}}>CARB CYCLING</div>
+                <div style={{fontSize:10,color:C.sub,lineHeight:1.5}}>Leg/push days → extra ½ cup rice. Rest days → ¾ cup rice, skip sourdough.</div>
+              </div>
+              <div style={{marginTop:14}}>
+                <div style={{fontSize:11,fontWeight:800,color:C.red,marginBottom:6}}>PROTEIN SHAKES</div>
+                {[
+                  {brand:"Optimum Nutrition",note:"Gold Standard Isolate · 24g · Best value",url:"https://www.amazon.com/dp/B000QSNYGI"},
+                  {brand:"Momentous",note:"Whey Isolate · 24g · NSF certified",url:"https://www.livemomentous.com/products/grass-fed-whey-protein"},
+                  {brand:"Transparent Labs",note:"Grass-Fed · 28g · Highest per scoop",url:"https://www.transparentlabs.com/products/proteinseries-100-grass-fed-whey-protein-isolate"},
+                  {brand:"Dymatize",note:"ISO100 · 25g · No bloat",url:"https://www.amazon.com/dp/B000GIPJ0M"},
+                ].map((s,i)=>(
+                  <div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"8px 10px",background:i%2===0?C.card:C.cardAlt,borderRadius:8,marginBottom:3}}>
+                    <div>
+                      <div style={{fontWeight:700,fontSize:12,color:C.text}}>{s.brand}</div>
+                      <div style={{fontSize:9,color:C.dim}}>{s.note}</div>
+                    </div>
+                    <a href={s.url} target="_blank" rel="noopener noreferrer" style={{color:C.orange,fontSize:10,fontWeight:700,textDecoration:"none"}}>Buy →</a>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {view==="progress"&&(
+            <div>
+              <div style={{textAlign:"center",padding:"10px 0 16px"}}>
+                <div style={{fontSize:13,fontWeight:800,color:C.gold,letterSpacing:1}}>12-WEEK OVERVIEW</div>
+              </div>
+              <div style={{marginBottom:20}}>
+                <div style={{fontSize:11,fontWeight:700,color:C.sub,marginBottom:8,paddingLeft:2}}>WEIGH-INS</div>
+                <div style={{display:"flex",alignItems:"flex-end",gap:3,height:100,padding:"0 2px"}}>
+                  {Array.from({length:12},(_,i)=>{
+                    const wk=i+1;const w=parseFloat(weightInputs[wk]);const has=!isNaN(w);const minW=180;const maxW=205;
+                    const barH=has?Math.max(8,((w-minW)/(maxW-minW))*90):0;const isGood=has&&w<=(200-wk*1.25+1);
+                    return(
+                      <div key={wk} style={{flex:1,display:"flex",flexDirection:"column",alignItems:"center",gap:2}}>
+                        {has&&<div style={{fontSize:8,fontWeight:700,color:isGood?C.gold:C.red}}>{w}</div>}
+                        <div style={{width:"100%",borderRadius:4,height:has?barH:4,background:has?(isGood?C.gold:C.red+"80"):"#0a4060",transition:"height 0.3s"}}/>
+                        <div style={{fontSize:7,color:wk===currentWeek?C.orange:C.dim,fontWeight:wk===currentWeek?800:400}}>{wk}</div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+              <div style={{fontSize:11,fontWeight:700,color:C.sub,marginBottom:8,paddingLeft:2}}>COMPLETION BY WEEK</div>
+              {Array.from({length:12},(_,i)=>{
+                const wk=i+1;const pct=weekPct(wk);const w=weightInputs[wk];const isCur=wk===currentWeek;
+                return(
+                  <div key={wk} onClick={()=>{switchWeek(wk);setView("workout");}} style={{display:"flex",alignItems:"center",gap:10,padding:"8px 10px",marginBottom:3,borderRadius:8,cursor:"pointer",background:isCur?"rgba(247,127,0,0.1)":C.card,borderLeft:isCur?`3px solid ${C.orange}`:"3px solid transparent"}}>
+                    <div style={{fontSize:12,fontWeight:800,color:isCur?C.orange:C.sub,width:36}}>WK {wk}</div>
+                    <div style={{flex:1}}><div style={{background:"#0a4060",borderRadius:3,height:6,overflow:"hidden"}}><div style={{height:"100%",borderRadius:3,width:pct+"%",background:pct===100?C.gold:pct>0?C.orange:"transparent",transition:"width 0.3s"}}/></div></div>
+                    <div style={{fontSize:11,fontWeight:700,color:pct===100?C.gold:pct>0?C.orange:C.dim,width:34,textAlign:"right"}}>{pct}%</div>
+                    <div style={{fontSize:11,color:C.dim,width:42,textAlign:"right"}}>{w?w+"lb":"—"}</div>
+                  </div>
+                );
+              })}
+              <div style={{marginTop:16,background:C.card,borderRadius:12,padding:14}}>
+                <div style={{fontSize:11,fontWeight:700,color:C.gold,marginBottom:8}}>STATS</div>
+                <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
+                  {[
+                    {v:Array.from({length:12},(_,i)=>weekPct(i+1)===100?1:0).reduce((a,b)=>a+b,0),l:"Perfect Weeks",c:C.gold},
+                    {v:Object.values(allWeeks).reduce((a,wk)=>a+Object.keys(wk).length,0),l:"Total Exercises",c:C.orange},
+                    {v:(()=>{const vals=Array.from({length:12},(_,i)=>parseFloat(weightInputs[i+1])).filter(v=>!isNaN(v));if(vals.length<2)return"—";return(vals[0]-vals[vals.length-1]).toFixed(1);})(),l:"Lbs Lost",c:C.red},
+                    {v:Math.round(Array.from({length:12},(_,i)=>weekPct(i+1)).reduce((a,b)=>a+b,0)/12)+"%",l:"Avg Completion",c:"#2a9d8f"},
+                  ].map((s,i)=>(
+                    <div key={i} style={{textAlign:"center"}}>
+                      <div style={{fontSize:22,fontWeight:800,color:s.c}}>{s.v}</div>
+                      <div style={{fontSize:9,color:C.dim}}>{s.l}</div>
                     </div>
                   ))}
                 </div>
-              )}
-            </div>
-          );
-        })}
-
-        {view === "food" && (
-          <div>
-            <div style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:5, margin:"6px 0 14px" }}>
-              {[{l:"Cal",v:"2,155",c:"#E94560"},{l:"Protein",v:"201g",c:"#6C5CE7"},{l:"Carbs",v:"170g",c:"#00B894"},{l:"Fat",v:"83g",c:"#FDCB6E"}].map((m,i) => (
-                <div key={i} style={{ background:"#1e1e2e", borderRadius:10, padding:"9px 4px", textAlign:"center", borderTop:"3px solid "+m.c }}>
-                  <div style={{ fontSize:15, fontWeight:800, color:m.c }}>{m.v}</div>
-                  <div style={{ fontSize:9, color:"#555", marginTop:1 }}>{m.l}</div>
-                </div>
-              ))}
-            </div>
-            {[
-              {meal:"MEAL 1",time:"7-8am",items:["4 eggs + 1 tbsp butter — 24P","1 slice sourdough — 4P","1 cup berries — 1P"]},
-              {meal:"MEAL 2",time:"12-1pm",items:["8 oz chicken breast — 52P","1 cup rice + 1 tbsp butter — 4P","Veggies — 3P"]},
-              {meal:"MEAL 3",time:"5-6pm",items:["8 oz NY strip — 46P","1 baked potato + 1 tbsp butter — 4P","Side salad/veggies — 2P"]},
-              {meal:"SHAKE",time:"Post-WO",items:["2 scoops whey isolate — 48P","1 banana — 1P"]},
-            ].map((m,mi) => (
-              <div key={mi} style={{ marginBottom:10 }}>
-                <div style={{ display:"flex", justifyContent:"space-between", marginBottom:3 }}>
-                  <span style={{ fontSize:12, fontWeight:800, color:"#E94560" }}>{m.meal}</span>
-                  <span style={{ fontSize:10, color:"#444" }}>{m.time}</span>
-                </div>
-                {m.items.map((item,ii) => (
-                  <div key={ii} style={{ padding:"6px 10px", background:ii%2===0?"#181824":"#1c1c2a", borderRadius:6, marginBottom:1, fontSize:12, color:"#bbb" }}>{item}</div>
-                ))}
-              </div>
-            ))}
-            <div style={{ background:"#181824", borderRadius:10, padding:10, borderLeft:"3px solid #6C5CE7", marginTop:6 }}>
-              <div style={{ fontSize:10, color:"#6C5CE7", fontWeight:700, marginBottom:3 }}>CARB CYCLING</div>
-              <div style={{ fontSize:10, color:"#777", lineHeight:1.5 }}>Leg/push days → extra ½ cup rice. Rest days → ¾ cup rice, skip sourdough.</div>
-            </div>
-            <div style={{ marginTop:14 }}>
-              <div style={{ fontSize:11, fontWeight:800, color:"#E94560", marginBottom:6 }}>PROTEIN SHAKES</div>
-              {[
-                {brand:"Optimum Nutrition",note:"Gold Standard Isolate · 24g · Best value",url:"https://www.amazon.com/dp/B000QSNYGI"},
-                {brand:"Momentous",note:"Whey Isolate · 24g · NSF certified",url:"https://www.livemomentous.com/products/grass-fed-whey-protein"},
-                {brand:"Transparent Labs",note:"Grass-Fed · 28g · Highest per scoop",url:"https://www.transparentlabs.com/products/proteinseries-100-grass-fed-whey-protein-isolate"},
-                {brand:"Dymatize",note:"ISO100 · 25g · No bloat",url:"https://www.amazon.com/dp/B000GIPJ0M"},
-              ].map((s,i) => (
-                <div key={i} style={{ display:"flex", justifyContent:"space-between", alignItems:"center", padding:"8px 10px", background:i%2===0?"#181824":"#1c1c2a", borderRadius:8, marginBottom:3 }}>
-                  <div>
-                    <div style={{ fontWeight:700, fontSize:12, color:"#F8F8F2" }}>{s.brand}</div>
-                    <div style={{ fontSize:9, color:"#777" }}>{s.note}</div>
-                  </div>
-                  <a href={s.url} target="_blank" rel="noopener noreferrer" style={{ color:"#E94560", fontSize:10, fontWeight:700, textDecoration:"none" }}>Buy →</a>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {view === "progress" && (
-          <div>
-            <div style={{ textAlign:"center", padding:"10px 0 16px" }}>
-              <div style={{ fontSize:13, fontWeight:800, color:"#E94560", letterSpacing:1 }}>12-WEEK OVERVIEW</div>
-            </div>
-            <div style={{ marginBottom:20 }}>
-              <div style={{ fontSize:11, fontWeight:700, color:"#888", marginBottom:8, paddingLeft:2 }}>WEIGH-INS</div>
-              <div style={{ display:"flex", alignItems:"flex-end", gap:3, height:100, padding:"0 2px" }}>
-                {Array.from({length:12},(_,i)=>{
-                  const wk=i+1; const w=parseFloat(weightInputs[wk]); const has=!isNaN(w); const minW=180; const maxW=205;
-                  const barH=has?Math.max(8,((w-minW)/(maxW-minW))*90):0; const isGood=has&&w<=(200-wk*1.25+1);
-                  return (
-                    <div key={wk} style={{ flex:1, display:"flex", flexDirection:"column", alignItems:"center", gap:2 }}>
-                      {has && <div style={{ fontSize:8, fontWeight:700, color:isGood?"#00B894":"#E94560" }}>{w}</div>}
-                      <div style={{ width:"100%", borderRadius:4, height:has?barH:4, background:has?(isGood?"#00B894":"#E9456080"):"#2a2a3e", transition:"height 0.3s" }} />
-                      <div style={{ fontSize:7, color:wk===currentWeek?"#E94560":"#444", fontWeight:wk===currentWeek?800:400 }}>{wk}</div>
-                    </div>
-                  );
-                })}
               </div>
             </div>
-            <div style={{ fontSize:11, fontWeight:700, color:"#888", marginBottom:8, paddingLeft:2 }}>COMPLETION BY WEEK</div>
-            {Array.from({length:12},(_,i)=>{
-              const wk=i+1; const pct=weekPct(wk); const w=weightInputs[wk]; const isCur=wk===currentWeek;
-              return (
-                <div key={wk} onClick={()=>{switchWeek(wk);setView("workout");}} style={{ display:"flex", alignItems:"center", gap:10, padding:"8px 10px", marginBottom:3, borderRadius:8, cursor:"pointer", background:isCur?"#E9456018":"#16161f", borderLeft:isCur?"3px solid #E94560":"3px solid transparent" }}>
-                  <div style={{ fontSize:12, fontWeight:800, color:isCur?"#E94560":"#888", width:36 }}>WK {wk}</div>
-                  <div style={{ flex:1 }}><div style={{ background:"#2a2a3e", borderRadius:3, height:6, overflow:"hidden" }}><div style={{ height:"100%", borderRadius:3, width:pct+"%", background:pct===100?"#00B894":pct>0?"#6C5CE7":"transparent", transition:"width 0.3s" }} /></div></div>
-                  <div style={{ fontSize:11, fontWeight:700, color:pct===100?"#00B894":pct>0?"#6C5CE7":"#333", width:34, textAlign:"right" }}>{pct}%</div>
-                  <div style={{ fontSize:11, color:"#555", width:42, textAlign:"right" }}>{w?w+"lb":"—"}</div>
-                </div>
-              );
-            })}
-            <div style={{ marginTop:16, background:"#1a1a2e", borderRadius:12, padding:14 }}>
-              <div style={{ fontSize:11, fontWeight:700, color:"#FDCB6E", marginBottom:8 }}>STATS</div>
-              <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:8 }}>
-                {[
-                  {v:Array.from({length:12},(_,i)=>weekPct(i+1)===100?1:0).reduce((a,b)=>a+b,0),l:"Perfect Weeks",c:"#00B894"},
-                  {v:Object.values(allWeeks).reduce((a,wk)=>a+Object.keys(wk).length,0),l:"Total Exercises",c:"#6C5CE7"},
-                  {v:(()=>{const vals=Array.from({length:12},(_,i)=>parseFloat(weightInputs[i+1])).filter(v=>!isNaN(v));if(vals.length<2)return"—";return(vals[0]-vals[vals.length-1]).toFixed(1)})(),l:"Lbs Lost",c:"#E94560"},
-                  {v:Math.round(Array.from({length:12},(_,i)=>weekPct(i+1)).reduce((a,b)=>a+b,0)/12)+"%",l:"Avg Completion",c:"#E17055"},
-                ].map((s,i) => (
-                  <div key={i} style={{ textAlign:"center" }}>
-                    <div style={{ fontSize:22, fontWeight:800, color:s.c }}>{s.v}</div>
-                    <div style={{ fontSize:9, color:"#666" }}>{s.l}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
     </div>
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
 </script>
 </body>
 </html>
