@@ -178,6 +178,12 @@ function App(){
     },300);
   };
 
+  const forceSave=()=>{
+    if(timer.current)clearTimeout(timer.current);
+    const ok=saveData({weeks:allWeeks,weights:weightInputs,currentWeek});
+    setSaveStatus(ok?"✓ SAVED":"⚠ FAILED");setTimeout(()=>setSaveStatus(""),2500);
+  };
+
   const getDone=(wk)=>allWeeks[wk]||{};
   const done=getDone(currentWeek);
 
@@ -230,7 +236,7 @@ function App(){
               </div>
             </div>
             <div style={{display:"flex",alignItems:"center",gap:10}}>
-              {saveStatus&&<span style={{fontSize:9,fontWeight:700,color:saveStatus==="✓"?C.gold:C.red,background:saveStatus==="✓"?"rgba(252,191,73,0.15)":"rgba(214,40,40,0.15)",padding:"3px 8px",borderRadius:6}}>{saveStatus==="✓"?"Saved ✓":"Save ⚠"}</span>}
+              {saveStatus&&<span style={{fontSize:10,fontWeight:700,color:saveStatus.includes("✓")?C.gold:C.red,background:saveStatus.includes("✓")?"rgba(252,191,73,0.15)":"rgba(214,40,40,0.15)",padding:"4px 10px",borderRadius:6}}>{saveStatus.includes("✓")?"Saved ✓":"Save ⚠"}</span>}
               <div style={{textAlign:"right"}}>
                 <div style={{fontSize:10,color:C.dim}}>Overall</div>
                 <div style={{fontSize:14,fontWeight:800,color:C.orange}}>{Math.round(Array.from({length:12},(_,i)=>weekPct(i+1)).reduce((a,b)=>a+b,0)/12)}%</div>
@@ -273,6 +279,7 @@ function App(){
               <input type="number" inputMode="decimal" placeholder="—" value={weightInputs[currentWeek]||""} onChange={e=>updateWeight(currentWeek,e.target.value)} style={{width:48,background:"transparent",border:"none",color:C.gold,fontSize:14,fontWeight:700,fontFamily:"inherit",outline:"none",textAlign:"center"}}/>
               <span style={{fontSize:10,color:C.dim}}>lbs</span>
             </div>
+            <button onClick={forceSave} style={{background:C.orange,border:"none",borderRadius:8,padding:"6px 14px",cursor:"pointer",fontFamily:"inherit",fontSize:11,fontWeight:800,color:C.navy}}>DONE</button>
             <div style={{display:"flex",gap:3,flex:1,justifyContent:"flex-end"}}>
               {DAYS.filter(d=>d.key!=="mobility").map(d=>{const ids=getDayExIds(d.key);const cnt=ids.filter(id=>done[id]).length;const comp=cnt===ids.length;const started=cnt>0;
                 return(<div key={d.key} style={{width:22,height:22,borderRadius:6,background:comp?C.gold:started?d.color+"30":"#0a4060",border:"1.5px solid "+(comp?C.gold:started?d.color:"#0a5070"),display:"flex",alignItems:"center",justifyContent:"center",fontSize:7,fontWeight:800,color:comp?C.navy:started?d.color:C.dim}}>{comp?"✓":d.day.slice(0,2)}</div>);
