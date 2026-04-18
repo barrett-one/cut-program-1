@@ -20,6 +20,7 @@ input[type=number]::-webkit-inner-spin-button { opacity: 1; }
 @keyframes checkPop { 0%{transform:scale(1)} 50%{transform:scale(1.35)} 100%{transform:scale(1)} }
 @keyframes flashDone { 0%{background:rgba(252,191,73,0.25)} 100%{background:transparent} }
 @keyframes completeBanner { 0%{opacity:0;transform:translateY(-20px)} 10%{opacity:1;transform:translateY(0)} 85%{opacity:1} 100%{opacity:0;transform:translateY(-20px)} }
+@keyframes verseScroll { 0%{transform:translateX(100%)} 100%{transform:translateX(-100%)} }
 .shell { max-width: 600px; margin: 0 auto; }
 @media (min-width: 768px) {
   .shell { max-width: 720px; }
@@ -152,6 +153,98 @@ const ALL_EX_IDS = []; DAYS.filter(d=>d.key!=="mobility").forEach(d=>d.sections.
 const TOTAL_EX = ALL_EX_IDS.length;
 const STORAGE_KEY = "cut12wk-data";
 
+const VERSES = [
+  {text:"I can do all things through Christ who strengthens me.",ref:"Philippians 4:13"},
+  {text:"The Lord is my strength and my shield; my heart trusts in him, and he helps me.",ref:"Psalm 28:7"},
+  {text:"But those who hope in the Lord will renew their strength. They will soar on wings like eagles.",ref:"Isaiah 40:31"},
+  {text:"Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go.",ref:"Joshua 1:9"},
+  {text:"Do you not know that your bodies are temples of the Holy Spirit?",ref:"1 Corinthians 6:19"},
+  {text:"Whatever you do, work at it with all your heart, as working for the Lord.",ref:"Colossians 3:23"},
+  {text:"No discipline seems pleasant at the time, but painful. Later on, however, it produces a harvest of righteousness and peace.",ref:"Hebrews 12:11"},
+  {text:"For God gave us a spirit not of fear but of power and love and self-discipline.",ref:"2 Timothy 1:7"},
+  {text:"Commit to the Lord whatever you do, and he will establish your plans.",ref:"Proverbs 16:3"},
+  {text:"The Lord is my light and my salvation — whom shall I fear?",ref:"Psalm 27:1"},
+  {text:"Have I not commanded you? Be strong and courageous. Do not be terrified; do not be discouraged.",ref:"Joshua 1:9"},
+  {text:"He gives strength to the weary and increases the power of the weak.",ref:"Isaiah 40:29"},
+  {text:"Trust in the Lord with all your heart and lean not on your own understanding.",ref:"Proverbs 3:5"},
+  {text:"The Lord is my shepherd, I lack nothing.",ref:"Psalm 23:1"},
+  {text:"I press on toward the goal to win the prize for which God has called me heavenward.",ref:"Philippians 3:14"},
+  {text:"Be on your guard; stand firm in the faith; be courageous; be strong.",ref:"1 Corinthians 16:13"},
+  {text:"Blessed is the one who perseveres under trial because, having stood the test, that person will receive the crown of life.",ref:"James 1:12"},
+  {text:"The Lord your God is in your midst, a mighty one who will save; he will rejoice over you with gladness.",ref:"Zephaniah 3:17"},
+  {text:"For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you.",ref:"Jeremiah 29:11"},
+  {text:"The righteous cry out, and the Lord hears them; he delivers them from all their troubles.",ref:"Psalm 34:17"},
+  {text:"Cast all your anxiety on him because he cares for you.",ref:"1 Peter 5:7"},
+  {text:"Be joyful in hope, patient in affliction, faithful in prayer.",ref:"Romans 12:12"},
+  {text:"The name of the Lord is a fortified tower; the righteous run to it and are safe.",ref:"Proverbs 18:10"},
+  {text:"God is our refuge and strength, an ever-present help in trouble.",ref:"Psalm 46:1"},
+  {text:"In all things we are more than conquerors through him who loved us.",ref:"Romans 8:37"},
+  {text:"Let us run with perseverance the race marked out for us, fixing our eyes on Jesus.",ref:"Hebrews 12:1-2"},
+  {text:"The Lord will fight for you; you need only to be still.",ref:"Exodus 14:14"},
+  {text:"Delight yourself in the Lord, and he will give you the desires of your heart.",ref:"Psalm 37:4"},
+  {text:"I have told you these things, so that in me you may have peace. In this world you will have trouble. But take heart! I have overcome the world.",ref:"John 16:33"},
+  {text:"And let us not grow weary of doing good, for in due season we will reap, if we do not give up.",ref:"Galatians 6:9"},
+  {text:"The Lord is near to all who call on him, to all who call on him in truth.",ref:"Psalm 145:18"},
+  {text:"Humble yourselves before the Lord, and he will lift you up.",ref:"James 4:10"},
+  {text:"The joy of the Lord is your strength.",ref:"Nehemiah 8:10"},
+  {text:"Be still, and know that I am God.",ref:"Psalm 46:10"},
+  {text:"Create in me a pure heart, O God, and renew a steadfast spirit within me.",ref:"Psalm 51:10"},
+  {text:"When I am afraid, I put my trust in you.",ref:"Psalm 56:3"},
+  {text:"But the fruit of the Spirit is love, joy, peace, forbearance, kindness, goodness, faithfulness, gentleness and self-control.",ref:"Galatians 5:22-23"},
+  {text:"The steadfast love of the Lord never ceases; his mercies never come to an end; they are new every morning.",ref:"Lamentations 3:22-23"},
+  {text:"So do not fear, for I am with you; do not be dismayed, for I am your God.",ref:"Isaiah 41:10"},
+  {text:"He who began a good work in you will carry it on to completion until the day of Christ Jesus.",ref:"Philippians 1:6"},
+  {text:"For where two or three gather in my name, there am I with them.",ref:"Matthew 18:20"},
+  {text:"The Lord bless you and keep you; the Lord make his face shine on you and be gracious to you.",ref:"Numbers 6:24-25"},
+  {text:"Wait for the Lord; be strong and take heart and wait for the Lord.",ref:"Psalm 27:14"},
+  {text:"In their hearts humans plan their course, but the Lord establishes their steps.",ref:"Proverbs 16:9"},
+  {text:"Greater is he that is in you, than he that is in the world.",ref:"1 John 4:4"},
+  {text:"My grace is sufficient for you, for my power is made perfect in weakness.",ref:"2 Corinthians 12:9"},
+  {text:"Draw near to God, and he will draw near to you.",ref:"James 4:8"},
+  {text:"The Lord is good, a refuge in times of trouble. He cares for those who trust in him.",ref:"Nahum 1:7"},
+  {text:"For nothing will be impossible with God.",ref:"Luke 1:37"},
+  {text:"I have fought the good fight, I have finished the race, I have kept the faith.",ref:"2 Timothy 4:7"},
+  {text:"Every good and perfect gift is from above, coming down from the Father of the heavenly lights.",ref:"James 1:17"},
+  {text:"The Lord is close to the brokenhearted and saves those who are crushed in spirit.",ref:"Psalm 34:18"},
+  {text:"If God is for us, who can be against us?",ref:"Romans 8:31"},
+  {text:"You are the light of the world. A town built on a hill cannot be hidden.",ref:"Matthew 5:14"},
+  {text:"Iron sharpens iron, and one man sharpens another.",ref:"Proverbs 27:17"},
+  {text:"Come to me, all you who are weary and burdened, and I will give you rest.",ref:"Matthew 11:28"},
+  {text:"See, I am doing a new thing! Now it springs up; do you not perceive it?",ref:"Isaiah 43:19"},
+  {text:"Not by might nor by power, but by my Spirit, says the Lord Almighty.",ref:"Zechariah 4:6"},
+  {text:"Consider it pure joy, my brothers and sisters, whenever you face trials of many kinds.",ref:"James 1:2"},
+  {text:"The Lord makes firm the steps of the one who delights in him.",ref:"Psalm 37:23"},
+  {text:"Peace I leave with you; my peace I give you. I do not give to you as the world gives.",ref:"John 14:27"},
+  {text:"Be transformed by the renewing of your mind.",ref:"Romans 12:2"},
+  {text:"The Lord himself goes before you and will be with you; he will never leave you nor forsake you.",ref:"Deuteronomy 31:8"},
+  {text:"So we fix our eyes not on what is seen, but on what is unseen, since what is seen is temporary, but what is unseen is eternal.",ref:"2 Corinthians 4:18"},
+  {text:"Though the mountains be shaken and the hills be removed, yet my unfailing love for you will not be shaken.",ref:"Isaiah 54:10"},
+  {text:"Seek first his kingdom and his righteousness, and all these things will be given to you as well.",ref:"Matthew 6:33"},
+  {text:"But he said to me, 'My grace is sufficient for you, for my power is made perfect in weakness.'",ref:"2 Corinthians 12:9"},
+  {text:"The Lord has done great things for us, and we are filled with joy.",ref:"Psalm 126:3"},
+  {text:"Have faith in God. Truly I tell you, if anyone says to this mountain, 'Go, throw yourself into the sea,' and does not doubt in their heart but believes, it will be done.",ref:"Mark 11:22-23"},
+  {text:"In all your ways submit to him, and he will make your paths straight.",ref:"Proverbs 3:6"},
+  {text:"You, Lord, are forgiving and good, abounding in love to all who call to you.",ref:"Psalm 86:5"},
+  {text:"Let all that you do be done in love.",ref:"1 Corinthians 16:14"},
+  {text:"The Lord is faithful, and he will strengthen you and protect you from the evil one.",ref:"2 Thessalonians 3:3"},
+  {text:"The earth is the Lord's, and everything in it, the world, and all who live in it.",ref:"Psalm 24:1"},
+  {text:"And we know that in all things God works for the good of those who love him.",ref:"Romans 8:28"},
+  {text:"Taste and see that the Lord is good; blessed is the one who takes refuge in him.",ref:"Psalm 34:8"},
+  {text:"Even youths grow tired and weary, and young men stumble and fall; but those who hope in the Lord will renew their strength.",ref:"Isaiah 40:30-31"},
+  {text:"The Lord is gracious and compassionate, slow to anger and rich in love.",ref:"Psalm 145:8"},
+  {text:"He will cover you with his feathers, and under his wings you will find refuge.",ref:"Psalm 91:4"},
+  {text:"Rejoice always, pray continually, give thanks in all circumstances.",ref:"1 Thessalonians 5:16-18"},
+  {text:"The Lord is my rock, my fortress and my deliverer.",ref:"Psalm 18:2"},
+  {text:"With God all things are possible.",ref:"Matthew 19:26"},
+  {text:"Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God.",ref:"Philippians 4:6"},
+  {text:"I will instruct you and teach you in the way you should go; I will counsel you with my loving eye on you.",ref:"Psalm 32:8"},
+  {text:"This is the day the Lord has made; let us rejoice and be glad in it.",ref:"Psalm 118:24"},
+  {text:"He has made everything beautiful in its time.",ref:"Ecclesiastes 3:11"},
+  {text:"The Lord will guide you always; he will satisfy your needs in a sun-scorched land.",ref:"Isaiah 58:11"},
+  {text:"A new command I give you: Love one another. As I have loved you, so you must love one another.",ref:"John 13:34"},
+];
+function getTodayVerse(){const d=new Date();const i=(d.getFullYear()*1000+d.getMonth()*32+d.getDate())%VERSES.length;return VERSES[i];}
+
 function getDayExIds(k){const d=DAYS.find(x=>x.key===k);const ids=[];if(d)d.sections.forEach(s=>s.exercises.forEach(e=>ids.push(e.id)));return ids;}
 function ytUrl(q){return"https://www.youtube.com/results?search_query="+encodeURIComponent(q+" form demo");}
 function loadData(){
@@ -245,6 +338,16 @@ function App(){
             <div style={{fontSize:11,color:"#003049aa"}}>Crushed it.</div>
           </div>
         )}
+
+        {/* DAILY VERSE */}
+        {(()=>{const v=getTodayVerse();return(
+          <div style={{background:"#001a2e",borderBottom:"1px solid #0a3050",overflow:"hidden",padding:"8px 0",whiteSpace:"nowrap"}}>
+            <div style={{display:"inline-block",animation:"verseScroll 25s linear infinite",paddingLeft:"100%"}}>
+              <span style={{fontSize:11,color:C.gold,fontWeight:600,fontStyle:"italic"}}>"{v.text}"</span>
+              <span style={{fontSize:10,color:C.dim,marginLeft:12}}>— {v.ref}</span>
+            </div>
+          </div>
+        );})()}
 
         {/* HEADER */}
         <div style={{background:`linear-gradient(135deg,${C.navy},#004060)`,padding:"14px 16px 12px",borderBottom:`2px solid ${C.orange}`}}>
